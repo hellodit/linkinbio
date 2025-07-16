@@ -7,7 +7,7 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured }: {
   isFeatured?: boolean;
 }) {
   return (
-    <div className={`bg-white rounded-xl shadow-md p-3 sm:p-4 flex flex-col gap-2 sm:gap-4 items-center max-w-sm w-full mx-auto${isFeatured ? " animate-bounce border-2 border-lime-400" : ""}`}>
+    <div className={`bg-white mb-2 rounded-xl shadow-md p-3 sm:p-4 flex flex-col gap-2 sm:gap-4 items-center w-full max-w-sm sm:max-w-full mx-auto${isFeatured ? "border-2 border-blue-400" : ""}`}>
       <img
         src={thumbnail}
         alt={name}

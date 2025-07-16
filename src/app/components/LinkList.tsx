@@ -16,8 +16,8 @@ export function LinkList() {
     <div>
       {Object.entries(grouped).map(([category, items]) => (
         <div key={category} className="mb-6">
-          <div className="font-bold text-lg mb-2">{category}</div>
-          <div className="flex flex-col gap-2 sm:gap-3">
+          <div className="font-bold text-lg text-center mb-3">{category}</div>
+          <div className="flex flex-col gap-2 sm:gap-4">
             {items.map((link, idx) => (
               link.type === "product" ? (
                 <ProductLinkCard
@@ -30,7 +30,7 @@ export function LinkList() {
               ) : (
                 <div
                   key={idx}
-                  className={`flex items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow max-w-sm w-full mx-auto${link.is_featured === true ? " animate-bounce border-2 border-lime-400" : ""}`}
+                  className={`flex mb-2 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto${link.is_featured === true ? "  border-2 border-blue-400" : ""}`}
                 >
                   <span className="font-medium text-sm sm:text-base">{link.label}</span>
                   <Button size="icon" className="bg-sky-400 hover:bg-sky-600">
