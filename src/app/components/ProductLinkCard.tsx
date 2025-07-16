@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-export function ProductLinkCard({ name, thumbnail, url }: { name: string; thumbnail: string; url: string }) {
+export function ProductLinkCard({ name, thumbnail, url, isFeatured }: { name: string; thumbnail: string; url: string; isFeatured?: boolean }) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 flex flex-col md:flex-row gap-4 items-center">
+    <div className={`bg-white rounded-xl shadow-md p-4 flex flex-col md:flex-row gap-4 items-center${isFeatured ? " animate-bounce border-2 border-lime-400" : ""}`}>
       <img
         src={thumbnail}
         alt={name}

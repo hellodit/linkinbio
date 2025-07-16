@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Twitter, Linkedin, Mail, Youtube, Instagram, Tiktok } from "lucide-react";
+import { Twitter, Linkedin, Mail, Youtube, Instagram } from "lucide-react";
 
 const socials = [
   { icon: Linkedin, label: "Linkedin", url: "#" },

@@ -1,5 +1,5 @@
 [
-  { "type": "default", "label": "BINGUNG? MAU TANYA? DISKUSI? JOIN GROUP BARUDAK FIGMA ⚡", "url": "#" },
+  { "type": "default", "label": "BINGUNG? MAU TANYA? DISKUSI? JOIN GROUP BARUDAK FIGMA ⚡", "url": "#", "is_featured": true },
   { "type": "product", "name": "ESignature Sign Apps - Mobile Apps 4 Screen", "thumbnail": "/dummy/esignature.png", "url": "/produk/esignature-sign-apps" },
   { "type": "default", "label": "FILE DOCS BELAJAR VARIABLES", "url": "#" },
   { "type": "default", "label": "MOKNOT: RATUSAN RESOURCES UIUX DESIGN", "url": "#" },
@@ -9,6 +9,6 @@
   { "type": "default", "label": "Daily UI", "url": "#" },
   { "type": "default", "label": "Phospor Icons Plugin", "url": "#" },
   { "type": "default", "label": "Iconsax Plugin", "url": "#" },
-  { "type": "product", "name": "Travel Booking UI Kit - Mobile App", "thumbnail": "/dummy/travel-booking.png", "url": "/produk/travel-booking-ui-kit" },
+  { "type": "product", "name": "Travel Booking UI Kit - Mobile App", "thumbnail": "/dummy/travel-booking.png", "url": "/produk/travel-booking-ui-kit", "is_featured": true },
   { "type": "product", "name": "Crypto Wallet App UI - 6 Screens", "thumbnail": "/dummy/crypto-wallet.png", "url": "/produk/crypto-wallet-app-ui" }
 ] 
