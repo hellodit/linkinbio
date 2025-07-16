@@ -7,13 +7,13 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured }: {
   isFeatured?: boolean;
 }) {
   return (
-    <div className={`bg-white rounded-xl shadow-md p-4 flex flex-col gap-4 items-center${isFeatured ? " animate-bounce border-2 border-lime-400" : ""}`}>
+    <div className={`bg-white rounded-xl shadow-md p-3 sm:p-4 flex flex-col gap-2 sm:gap-4 items-center max-w-sm w-full mx-auto${isFeatured ? " animate-bounce border-2 border-lime-400" : ""}`}>
       <img
         src={thumbnail}
         alt={name}
-        className="rounded-lg w-full h-56 object-cover bg-gray-100"
+        className="rounded-lg w-full h-40 sm:h-56 object-cover bg-gray-100"
       />
-      <div className="font-bold text-base md:text-lg mb-2 w-full text-left">{name}</div>
+      <div className="font-bold text-base sm:text-lg mb-1 sm:mb-2 w-full text-left">{name}</div>
     </div>
   );
 } 
