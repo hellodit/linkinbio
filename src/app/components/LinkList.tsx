@@ -21,8 +21,8 @@ export function LinkList() {
             className={`flex items-center justify-between bg-white rounded-xl p-3 shadow${link.is_featured === true ? " animate-bounce border-2 border-lime-400" : ""}`}
           >
             <span className="font-medium text-sm">{link.label}</span>
-            <Button size="icon" className="bg-lime-200 hover:bg-lime-300">
-              <ArrowRight className="text-black" />
+            <Button size="icon" className="bg-sky-400 hover:bg-sky-600">
+              <ArrowRight className="text-white" />
             </Button>
           </div>
         )

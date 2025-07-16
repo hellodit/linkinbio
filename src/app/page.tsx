@@ -14,10 +14,6 @@ export default function Home() {
           <span className="font-bold text-lg block mb-2">Link from Content</span>
           <LinkList />
         </div>
-        <div className="w-full">
-          <span className="font-bold text-lg block mb-2">Freebies</span>
-          <div className="text-center text-muted-foreground py-10">Belum ada freebies.</div>
-        </div>
       </div>
     </div>
   );
