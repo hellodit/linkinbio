@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Link in Bio - Next.js & Tailwind CSS
 
-## Getting Started
+Project ini adalah aplikasi Link in Bio modern yang dibangun dengan Next.js (App Router) dan Tailwind CSS, dengan pendekatan mobile first dan data dinamis dari file JSON.
 
-First, run the development server:
+## Fitur Utama
+- **Mobile First**: Semua komponen dioptimalkan untuk tampilan mobile, responsif di semua device.
+- **Profile & Social Card**: Data profil dan social link dibaca dari file `profile.json`.
+- **Link Group by Category**: Semua link (termasuk produk) dikelompokkan berdasarkan kategori dari file `links.json`.
+- **Produk Card**: Card produk dengan gambar besar, nama produk, dan highlight jika featured.
+- **Dark Mode**: Toggle dark mode di header.
+- **Customizable via JSON**: Semua data link, produk, dan profil bisa diubah langsung dari file JSON tanpa perlu edit kode.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Struktur Project
+```
+src/
+  app/
+    components/
+      Header.tsx
+      LinkList.tsx
+      ProductLinkCard.tsx
+      ProfileSocialCard.tsx (jika digunakan)
+    data/
+      links.json      # Semua data link & produk
+      profile.json    # Data profil & social links
+    page.tsx         # Halaman utama
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup & Menjalankan
+1. **Install dependencies**
+   ```bash
+   npm install
+   # atau
+   yarn install
+   ```
+2. **Jalankan development server**
+   ```bash
+   npm run dev
+   # atau
+   yarn dev
+   ```
+3. **Akses di browser**
+   Buka [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Kustomisasi Data
+- **Profile & Social**: Edit `src/app/data/profile.json`
+- **Link & Produk**: Edit `src/app/data/links.json` (bisa tambah kategori, produk, dsb)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Catatan
+- Pastikan gambar (avatar, thumbnail produk) tersedia di folder `public/dummy/` atau sesuaikan path-nya.
+- Untuk icon social, bisa gunakan library seperti `react-icons` atau SVG inline.
+- Tailwind config sudah mobile first dan mendukung dark mode.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Dibuat dengan ❤️ oleh @codingtengahmalam
