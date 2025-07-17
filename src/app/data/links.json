@@ -1,14 +1,5 @@
 [
-  { "type": "default", "label": "BINGUNG? MAU TANYA? DISKUSI? JOIN GROUP BARUDAK FIGMA ⚡", "url": "#", "is_featured": true, "category": "Komunitas" },
-  { "type": "product", "name": "ESignature Sign Apps - Mobile Apps 4 Screen", "thumbnail": "/dummy/esignature.png", "url": "/produk/esignature-sign-apps", "harga": "Rp 49.000", "label": "Best Seller", "action_text": "Lihat Detail", "category": "Produk Digital" },
-  { "type": "default", "label": "FILE DOCS BELAJAR VARIABLES", "url": "#", "category": "Resource" },
-  { "type": "default", "label": "MOKNOT: RATUSAN RESOURCES UIUX DESIGN", "url": "#", "category": "Resource" },
-  { "type": "default", "label": "FILE SOURCE POSTER BOLA", "url": "#", "category": "Resource" },
-  { "type": "default", "label": "UXCEL", "url": "#", "category": "Resource" },
-  { "type": "default", "label": "UI Coach", "url": "#", "category": "Resource 3" },
-  { "type": "default", "label": "Daily UI", "url": "#", "category": "Resource 2" },
-  { "type": "default", "label": "Phospor Icons Plugin", "url": "#", "category": "Resource", "is_featured": true },
-  { "type": "default", "label": "Iconsax Plugin", "url": "#", "category": "Resource" },
-  { "type": "product", "name": "Travel Booking UI Kit - Mobile App", "thumbnail": "/dummy/travel-booking.png", "url": "/produk/travel-booking-ui-kit", "is_featured": false, "harga": "Rp 39.000", "label": "Promo", "action_text": "Lihat Detail", "category": "Produk Digital" },
-  { "type": "product", "name": "Crypto Wallet App UI - 6 Screens", "thumbnail": "/dummy/crypto-wallet.png", "url": "/produk/crypto-wallet-app-ui", "harga": "Gratis", "label": "Freebie", "action_text": "Download", "category": "Produk Digital" }
-] 
+  { "type": "product", "name": "Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice", "thumbnail": "/products/belajar-membuat-aplikasi-laravel-blue.jpeg", "url": "/produk/esignature-sign-apps", "harga": "Rp 49.000", "label": "Best Seller", "action_text": "Lihat Detail", "category": "Produk Digital" },
+  { "type": "product", "name": "Coding Project Cost Planner", "thumbnail": "/products/coding-project-planner.png", "url": "/produk/esignature-sign-apps", "harga": "Rp 49.000", "label": "Best Seller", "action_text": "Lihat Detail", "category": "Produk Digital" },
+  { "type": "default", "label": "Portal Member", "url": "https://codingtengahmalam.myr.id/portal", "category": "Resource" }
+]
