@@ -28,15 +28,16 @@ export function LinkList() {
                   isFeatured={link.is_featured === true}
                 />
               ) : (
-                <div
+                <a
                   key={idx}
-                  className={`flex mb-2 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto${link.is_featured === true ? "  border-2 border-blue-400" : ""}`}
+                  href={link.url}
+                  className={`flex mb-2 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto hover:shadow-lg transition-shadow duration-200${link.is_featured === true ? "  border-2 border-blue-400" : ""}`}
                 >
                   <span className="font-medium text-sm sm:text-base">{link.label}</span>
                   <Button size="icon" className="bg-sky-400 hover:bg-sky-600">
                     <ArrowRight className="text-white" />
                   </Button>
-                </div>
+                </a>
               )
             ))}
           </div>
