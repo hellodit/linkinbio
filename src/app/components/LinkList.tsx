@@ -25,6 +25,9 @@ export function LinkList() {
                   name={link.name || ""}
                   thumbnail={link.thumbnail || ""}
                   url={link.url}
+                  price={link.price}
+                  description={link.description}
+                  reviewCount={link.reviewCount}
                   isFeatured={link.is_featured === true}
                 />
               ) : (

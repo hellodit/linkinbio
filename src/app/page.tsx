@@ -1,8 +1,11 @@
-import { Header } from "./components/Header";
+import type { Metadata } from "next";
 import { ProfileCard } from "./components/ProfileCard";
-import { Description } from "./components/Description";
-import { SocialLinks } from "./components/SocialLinks";
 import { LinkList } from "./components/LinkList";
+
+export const metadata: Metadata = {
+  title: "Link in Bio - Coding Tengah Malam",
+  description: "Link in Bio untuk Coding Tengah Malam - Portal member, produk digital, dan resource lainnya",
+};
 
 export default function Home() {
   return (

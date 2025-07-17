@@ -1,5 +1,21 @@
 [
-  { "type": "product", "name": "Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice", "thumbnail": "/products/belajar-membuat-aplikasi-laravel-blue.jpeg", "url": "/produk/esignature-sign-apps", "harga": "Rp 49.000", "label": "Best Seller", "action_text": "Lihat Detail", "category": "Produk Digital" },
-  { "type": "product", "name": "Coding Project Cost Planner", "thumbnail": "/products/coding-project-planner.png", "url": "/produk/esignature-sign-apps", "harga": "Rp 49.000", "label": "Best Seller", "action_text": "Lihat Detail", "category": "Produk Digital" },
-  { "type": "default", "label": "Portal Member", "url": "https://codingtengahmalam.myr.id/portal", "category": "Resource" }
+  {
+    "type": "product",
+    "name": "Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice",
+    "thumbnail": "/products/belajar-membuat-aplikasi-laravel-blue.jpeg",
+    "url": "/produk/esignature-sign-apps",
+    "price": 2000,
+    "description": "Panduan lengkap membangun aplikasi Laravel sesuai standar industri.",
+    "reviewCount": 87,
+    "is_featured": true
+  },
+  {
+    "type": "product",
+    "name": "Coding Project Cost Planner",
+    "thumbnail": "/products/coding-project-planner.png",
+    "url": "/produk/coding-project-cost-planner",
+    "price": 49000,
+    "description": "Alat bantu merencanakan dan menghitung biaya proyek coding Anda.",
+    "reviewCount": 42
+  }
 ]
