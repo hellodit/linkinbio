@@ -1,7 +1,7 @@
 import React from "react";
 import { formatRupiah } from "@/lib/utils";
 
-export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, description, reviewCount }: {
+export function ProductLinkCard({ name, thumbnail, url, isFeatured, price }: {
   name: string;
   thumbnail: string;
   url: string;
@@ -11,7 +11,7 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, descr
   return (
     <a
       href={url}
-      className={`block bg-white mb-2 rounded-xl shadow-md  flex flex-col items-center w-full max-w-sm sm:max-w-full mx-auto hover:bg-blue-50 transition-shadow duration-200${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
+      className={`block bg-white mb-2 rounded-xl shadow-md flex flex-col items-center w-full max-w-sm sm:max-w-full mx-auto hover:bg-blue-50 transition-shadow duration-200${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
     >
       <div className="w-full aspect-[16/9]">
         <img

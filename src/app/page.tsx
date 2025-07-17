@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen bg-[#f7fafc] flex flex-col items-center py-4 px-2">
-      <div className="w-full max-w-md flex flex-col gap-3 sm:gap-4 items-center mx-auto">
+    <div className="font-sans min-h-screen bg-[#f7fafc] flex flex-col items-center px-4">
+      <div className="bg-white w-full max-w-md flex flex-col gap-2 md:w-full items-center mx-auto shadow-sm p-4">
         <ProfileCard />
         <div className="w-full">
           <LinkList />

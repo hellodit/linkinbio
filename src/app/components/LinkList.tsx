@@ -17,7 +17,7 @@ export function LinkList() {
       {Object.entries(grouped).map(([category, items]) => (
         <div key={category} className="mb-6">
           <div className="font-bold text-lg text-center mb-3">{category}</div>
-          <div className="flex flex-col gap-2 sm:gap-4">
+          <div className="flex flex-col gap-1 sm:gap-2">
             {items.map((link, idx) => (
               link.type === "product" ? (
                 <ProductLinkCard
@@ -26,6 +26,7 @@ export function LinkList() {
                   thumbnail={link.thumbnail || ""}
                   url={link.url}
                   isFeatured={link.is_featured === true}
+                  price={link.price}
                 />
               ) : (
                 <a
