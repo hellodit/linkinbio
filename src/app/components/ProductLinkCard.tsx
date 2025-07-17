@@ -7,19 +7,17 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, descr
   url: string;
   isFeatured?: boolean;
   price: number;
-  description: string;
-  reviewCount: number;
 }) {
   return (
     <a
       href={url}
-      className={`block bg-white mb-2 rounded-xl shadow-md sm:p-4 flex flex-col gap-2 sm:gap-4 items-center w-full max-w-sm sm:max-w-full mx-auto hover:shadow-lg transition-shadow duration-200${isFeatured ? "border-2 border-blue-400" : ""}`}
+      className={`block bg-white mb-2 rounded-xl shadow-md  flex flex-col items-center w-full max-w-sm sm:max-w-full mx-auto hover:bg-blue-50 transition-shadow duration-200${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
     >
       <div className="w-full aspect-[16/9]">
         <img
           src={thumbnail}
           alt={name}
-          className="rounded-t-lg w-full h-full object-cover bg-gray-100"
+          className="rounded-t-lg w-full h-full object-cover"
         />
       </div>
       <div className="p-3 w-full">

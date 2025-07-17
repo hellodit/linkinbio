@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MoveUpRight } from "lucide-react";
 import { ProductLinkCard } from "./ProductLinkCard";
 import links from "../data/links.json";
 
@@ -25,20 +25,17 @@ export function LinkList() {
                   name={link.name || ""}
                   thumbnail={link.thumbnail || ""}
                   url={link.url}
-                  price={link.price}
-                  description={link.description}
-                  reviewCount={link.reviewCount}
                   isFeatured={link.is_featured === true}
                 />
               ) : (
                 <a
                   key={idx}
                   href={link.url}
-                  className={`flex mb-2 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto hover:shadow-lg transition-shadow duration-200${link.is_featured === true ? "  border-2 border-blue-400" : ""}`}
+                  className={`flex mb-2 hover:bg-blue-50 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto transition-shadow duration-200${link.is_featured === true ? "  border-2 border-blue-400" : ""}`}
                 >
-                  <span className="font-medium text-sm sm:text-base">{link.label}</span>
-                  <Button size="icon" className="bg-sky-400 hover:bg-sky-600">
-                    <ArrowRight className="text-white" />
+                  <span className="font-semibold text-sm sm:text-base">{link.label}</span>
+                  <Button size="icon" className="bg-blue-500 hover:bg-blue-600">
+                    <MoveUpRight className="text-white" />
                   </Button>
                 </a>
               )

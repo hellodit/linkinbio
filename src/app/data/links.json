@@ -1,21 +1,26 @@
 [
   {
+    "category": "Produk Digital",
     "type": "product",
     "name": "Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice",
     "thumbnail": "/products/belajar-membuat-aplikasi-laravel-blue.jpeg",
-    "url": "/produk/esignature-sign-apps",
-    "price": 2000,
-    "description": "Panduan lengkap membangun aplikasi Laravel sesuai standar industri.",
-    "reviewCount": 87,
+    "url": "https://codingtengahmalam.myr.id/ebook/laravel-best-practice",
+    "price": 99000,
     "is_featured": true
   },
   {
+    "category": "Produk Digital",
     "type": "product",
     "name": "Coding Project Cost Planner",
     "thumbnail": "/products/coding-project-planner.png",
-    "url": "/produk/coding-project-cost-planner",
-    "price": 49000,
-    "description": "Alat bantu merencanakan dan menghitung biaya proyek coding Anda.",
-    "reviewCount": 42
+    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
+    "price": 0,
+    "is_featured": false
+  },
+  {
+    "type": "default",
+    "label": "Login Portal Member",
+    "url": "https://codingtengahmalam.myr.id/portal",
+    "category": "Featured Link"
   }
 ]
