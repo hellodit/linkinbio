@@ -1,23 +1,23 @@
 import React from "react";
 import { formatRupiah } from "@/lib/utils";
-import products from "../data/products.json";
+import { Product } from "@/app/types/product";
 
-// Group products by category
-const groupedProducts = (products as any[]).reduce((acc, product) => {
-  const cat = product.category || "Lainnya";
-  if (!acc[cat]) acc[cat] = [];
-  acc[cat].push(product);
-  return acc;
-}, {} as Record<string, typeof products>);
+export function ProductList({ products }: { products: Product[] }) {
+  // Group products by category
+  const groupedProducts = products.reduce((acc, product) => {
+    const cat = product.category || "Lainnya";
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(product);
+    return acc;
+  }, {} as Record<string, Product[]>);
 
-export function ProductList() {
   return (
     <div>
       {Object.entries(groupedProducts).map(([category, items]) => (
         <div key={category} className="mb-6">
           <div className="font-bold text-lg text-center mb-3">{category}</div>
           <div className="flex flex-col gap-1 sm:gap-2">
-            {(items as any[]).map((product: any, idx: number) => (
+            {items.map((product, idx) => (
               <ProductLinkCard
                 key={product.id || product.url || idx}
                 name={product.name}

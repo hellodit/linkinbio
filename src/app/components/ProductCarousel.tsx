@@ -11,25 +11,19 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-
-interface Product {
-  id: string;
-  name: string;
-  thumbnail: string;
-  url: string;
-  price: number;
-  isFeatured?: boolean;
-}
+import { Product } from "@/app/types/product";
 
 export function ProductCarousel() {
   // Filter dan mapping data dari products.json
-  const productList = (products as any[]).map((item) => ({
-    id: item.id, // gunakan url sebagai id unik
+  const productList = (products as any[]).map((item): Product => ({
+    id: item.id,
     name: item.name,
     thumbnail: item.thumbnail,
     url: item.url,
     price: item.price,
-    isFeatured: item.is_featured,
+    is_featured: item.is_featured,
+    category: item.category,
+    type: item.type,
   }));
 
   const autoplay = React.useRef(
@@ -51,7 +45,7 @@ export function ProductCarousel() {
         <CarouselContent className="-ml-4">
           {productList.map((product) => (
             <CarouselItem key={product.id} className="pl-4 basis-full">
-              <div className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200${product.isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}>
+              <div className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200${product.is_featured ? " border-2 border-blue-400 animate-headShake" : ""}`}>
                 <div className="flex flex-col h-full">
                   {/* Thumbnail */}
                   <div className="h-40 w-full relative">

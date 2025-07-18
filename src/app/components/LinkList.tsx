@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
-import links from "../data/links.json";
+import linksData from "../data/links.json";
+import { Link } from "@/app/types/link";
+
+const links: Link[] = linksData as Link[];
 
 // Group links by category
-const groupedLinks = links.reduce((acc, link) => {
+const groupedLinks = links.reduce((acc: Record<string, Link[]>, link) => {
   const cat = link.category || "Lainnya";
   if (!acc[cat]) acc[cat] = [];
   acc[cat].push(link);
   return acc;
-}, {} as Record<string, typeof links>);
+}, {} as Record<string, Link[]>);
 
 export function LinkList() {
   return (
