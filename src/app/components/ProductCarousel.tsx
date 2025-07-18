@@ -2,7 +2,7 @@
 
 import React from "react";
 import { formatRupiah } from "@/lib/utils";
-import links from "@/app/data/links.json";
+import products from "@/app/data/products.json";
 import {
   Carousel,
   CarouselContent,
@@ -22,17 +22,15 @@ interface Product {
 }
 
 export function ProductCarousel() {
-  // Filter dan mapping data dari links.json
-  const products = (links as any[])
-    .filter((item) => item.type === "product")
-    .map((item) => ({
-      id: item.url, // gunakan url sebagai id unik
-      name: item.name,
-      thumbnail: item.thumbnail,
-      url: item.url,
-      price: item.price,
-      isFeatured: item.is_featured,
-    }));
+  // Filter dan mapping data dari products.json
+  const productList = (products as any[]).map((item) => ({
+    id: item.id, // gunakan url sebagai id unik
+    name: item.name,
+    thumbnail: item.thumbnail,
+    url: item.url,
+    price: item.price,
+    isFeatured: item.is_featured,
+  }));
 
   const autoplay = React.useRef(
     Autoplay({ delay: 2500, stopOnInteraction: true })
@@ -51,7 +49,7 @@ export function ProductCarousel() {
     >
       <div className="relative">
         <CarouselContent className="-ml-4">
-          {products.map((product) => (
+          {productList.map((product) => (
             <CarouselItem key={product.id} className="pl-4 basis-full">
               <div className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200${product.isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}>
                 <div className="flex flex-col h-full">
