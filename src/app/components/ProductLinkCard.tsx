@@ -11,27 +11,48 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price }: {
   return (
     <a
       href={url}
-      className={`block bg-white mb-2 rounded-xl shadow-md flex flex-col items-center w-full max-w-sm sm:max-w-full mx-auto hover:bg-blue-50 transition-shadow duration-200${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
+      className={`block bg-white mb-3 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 w-full${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
     >
-      <div className="w-full aspect-[16/9]">
-        <img
-          src={thumbnail}
-          alt={name}
-          className="rounded-t-lg w-full h-full object-cover"
-        />
-      </div>
-      <div className="p-3 w-full">
-        <div className="font-semibold text-base sm:text-lg mb-1 sm:mb-2 w-full text-left">{name}</div>
-        <div className="w-full flex flex-row items-center gap-2 mb-1 border-t border-gray-200 pt-2">
-          <div className="text-lg font-semibold text-green-600 flex-1 text-left">
-            {formatRupiah(price)}
+      <div className="flex">
+        {/* Left Section - Thumbnail */}
+        <div className="w-1/2 relative">
+          <img
+            src={thumbnail}
+            alt={name}
+            className="w-full h-full object-cover rounded-l-lg"
+          />
+         
+        </div>
+
+        {/* Right Section - Information */}
+        <div className="w-1/2 p-3 flex flex-col justify-between">
+          <div>
+            <div className="font-bold text-sm text-gray-900 mb-1 line-clamp-3 min-h-[48px]  ">
+              {name}
+            </div>
+            <div className="flex items-center gap-1 mb-2">
+              <span className="text-xs text-gray-600">Product</span>
+              <svg className="w-3 h-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded-full">PROD</span>
+            </div>
           </div>
-          <button
-            type="button"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-sm py-1 px-2 rounded-lg transition-colors duration-200"
-          >
-            Order Now
-          </button>
+
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="text-xs text-gray-500 mb-1">Price</div>
+              <div className="text-sm font-bold text-gray-900">
+                {formatRupiah(price)}
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-xs text-gray-500 mb-1">Status</div>
+              <div className="text-sm font-bold text-gray-900">
+                Available
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </a>
