@@ -1,6 +1,6 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { MapPin, MessageCircle, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Linkedin, Instagram, Youtube } from "lucide-react";
 
 const socials = [
   { icon: Linkedin, label: "Linkedin", url: "#" },

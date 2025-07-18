@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Product } from "@/app/types/product";
+import Image from "next/image";
 
 export function ProductCarousel() {
   // Filter dan mapping data dari products.json
-  const productList = (products as any[]).map((item): Product => ({
+  const productList = (products as Product[]).map((item): Product => ({
     id: item.id,
     name: item.name,
     thumbnail: item.thumbnail,
@@ -49,10 +50,13 @@ export function ProductCarousel() {
                 <div className="flex flex-col h-full">
                   {/* Thumbnail */}
                   <div className="h-40 w-full relative">
-                    <img
+                    <Image
                       src={product.thumbnail}
                       alt={product.name}
                       className="w-full h-full object-cover rounded-t-lg"
+                      fill
+                      sizes="100vw"
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                   {/* Info */}

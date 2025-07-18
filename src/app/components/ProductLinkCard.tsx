@@ -1,6 +1,7 @@
 import React from "react";
 import { formatRupiah } from "@/lib/utils";
 import { Product } from "@/app/types/product";
+import Image from "next/image";
 
 export function ProductList({ products }: { products: Product[] }) {
   // Group products by category
@@ -49,10 +50,13 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price }: {
       <div className="flex">
         {/* Left Section - Thumbnail */}
         <div className="w-1/2 relative">
-          <img
+          <Image
             src={thumbnail}
             alt={name}
             className="w-full h-full object-cover rounded-l-lg"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
           />
          
         </div>
