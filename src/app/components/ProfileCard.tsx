@@ -1,11 +1,10 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 
 const socials = [
-  { icon: Linkedin, label: "Linkedin", url: "#" },
-  { icon: Instagram, label: "Instagram", url: "#" },
-  { icon: Youtube, label: "YouTube", url: "#" },
+  { icon: Instagram, label: "Instagram", url: "https://www.instagram.com/codingtengahmalam" },
+  { icon: Youtube, label: "YouTube", url: "https://www.youtube.com/@codingtengahmalam" },
 ];
 
 export function ProfileCard() {
@@ -19,7 +18,11 @@ export function ProfileCard() {
           <AvatarImage src="/images/avatar.png" alt="Asdita Prasetya" />
         </Avatar>
         <div className="mt-4 text-center px-4">
-          <span className="text-xl md:text-2xl font-extrabold text-black">Asdita Prasetya</span>
+          <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">
+            @codingtengahmalam          
+          </span>
+          <p className="text-xl md:text-2xl font-extrabold text-black">Asdita Prasetya</p>
+
           <p className="text-black text-sm mt-2 max-w-2xl">
             Saya Bantuin software engineer upgrade skill lebih cepat
           </p>
