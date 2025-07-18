@@ -38,6 +38,7 @@ export function ProfileCard() {
           </div>
         </div>
       </div>
+
     </div>
   );
 } 
