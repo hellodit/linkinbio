@@ -18,6 +18,24 @@
     "is_featured": false
   },
   {
+    "category": "Produk Digital",
+    "type": "product",
+    "name": "Coding Project Cost Planner",
+    "thumbnail": "/products/coding-project-planner.png",
+    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
+    "price": 0,
+    "is_featured": false
+  },
+  {
+    "category": "Produk Digital",
+    "type": "product",
+    "name": "Coding Project Cost Planner",
+    "thumbnail": "/products/coding-project-planner.png",
+    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
+    "price": 0,
+    "is_featured": false
+  },
+  {
     "type": "default",
     "label": "Login Portal Member",
     "url": "https://codingtengahmalam.myr.id/portal",

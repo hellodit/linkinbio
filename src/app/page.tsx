@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProfileCard } from "./components/ProfileCard";
 import { LinkList } from "./components/LinkList";
+import { ProductCarousel } from "./components/ProductCarousel";
 
 export const metadata: Metadata = {
   title: "Link in Bio - Coding Tengah Malam",
@@ -14,8 +15,15 @@ export default function Home() {
         <ProfileCard />
         <div className="w-full">
           <LinkList />
+          <ProductCarousel />
         </div>
+             {/* Product Carousel Section */}
+      <div className="w-full max-w-6xl mt-8">
+       
       </div>
+      </div>
+      
+ 
     </div>
   );
 }
