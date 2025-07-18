@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="font-sans min-h-screen bg-[#f7fafc] flex flex-col items-center px-4">
-      <div className="bg-white w-full max-w-md flex flex-col gap-2 md:w-full items-center mx-auto shadow-xs p-4">
+      <div className="bg-white w-full max-w-xl flex flex-col gap-2 md:w-full items-center mx-auto shadow-xs p-4">
         <ProfileCard />
         <div className="w-full">
           <LinkList />
