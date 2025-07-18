@@ -7,7 +7,7 @@ import { ProductCarousel } from "./components/ProductCarousel";
 import productsData from "./data/products.json";
 
 export const metadata: Metadata = {
-  title: "Link in Bio - Coding Tengah Malam",
+  title: "Asdita - @codingtengahmalam",
   description: "Link in Bio untuk Coding Tengah Malam - Portal member, produk digital, dan resource lainnya",
 };
 
