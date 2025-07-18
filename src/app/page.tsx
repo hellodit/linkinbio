@@ -22,7 +22,7 @@ export default function Home() {
           <ProductCarousel />
           <LinkList />
         </div>
-              {/* Copyright Section */}
+        {/* Copyright Section */}
         <div className="w-full text-center mt-6 mb-2 text-xs text-gray-400">
           © {new Date().getFullYear()} Asdita Prasetya. All rights reserved.
         </div>
