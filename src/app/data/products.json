@@ -30,6 +30,16 @@
     "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
     "price": 0,
     "is_featured": false
+  }, 
+  {
+    "id": "4",
+    "category": "Produk Digital",
+    "type": "product",
+    "name": "Minimalist - Link in Bio Template",
+    "thumbnail": "/products/linkinbio.png",
+    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
+    "price": 0,
+    "is_featured": false
   }
 
 ] 
