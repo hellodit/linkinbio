@@ -11,6 +11,17 @@
     "is_featured": true
   },
   {
+    "id": "3",
+    "category": "Produk Digital",
+    "type": "product",
+    "name": "Source Code Laravel 11 & Filament Admin Panel: Bangun Website Donasi Online",
+    "thumbnail": "/products/source-code-donasi.jpeg",
+    "url": "https://codingtengahmalam.myr.id/catalog/source-code-laravel-11-filament-admin-panel-bangun-website-donasi-online",
+    "price": 69000,
+    "original_price": 120000,
+    "is_featured": false
+  },
+  {
     "id": "2",
     "category": "Produk Digital",
     "type": "product",
@@ -19,25 +30,6 @@
     "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
     "price": 0,
     "is_featured": false
-  },
-  {
-    "id": "3",
-    "category": "Produk Digital",
-    "type": "product",
-    "name": "Coding Project Cost Planner",
-    "thumbnail": "/products/coding-project-planner.png",
-    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
-    "price": 0,
-    "is_featured": false
-  },
-  {
-    "id": "4",
-    "category": "Produk Digital",
-    "type": "product",
-    "name": "Coding Project Cost Planner",
-    "thumbnail": "/products/coding-project-planner.png",
-    "url": "https://codingtengahmalam.myr.id/catalog/coding-project-cost-planner",
-    "price": 0,
-    "is_featured": false
   }
+
 ] 

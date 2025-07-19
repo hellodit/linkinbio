@@ -18,12 +18,12 @@ export function ProfileCard() {
           <AvatarImage src="/images/avatar.png" alt="Asdita Prasetya" />
         </Avatar>
         <div className="mt-4 text-center px-4">
-          <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">
+          <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground ring-1 ring-border ring-inset">
             @codingtengahmalam          
           </span>
-          <p className="text-xl md:text-2xl font-extrabold text-black">Asdita Prasetya</p>
+          <p className="text-xl md:text-2xl font-extrabold text-foreground">Asdita Prasetya</p>
 
-          <p className="text-black text-sm mt-2 max-w-2xl">
+          <p className="text-foreground text-sm mt-2 max-w-2xl">
             Saya Bantuin software engineer upgrade skill lebih cepat
           </p>
           {/* Socials */}

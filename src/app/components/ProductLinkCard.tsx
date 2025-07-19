@@ -16,7 +16,7 @@ export function ProductList({ products }: { products: Product[] }) {
     <div>
       {Object.entries(groupedProducts).map(([category, items]) => (
         <div key={category} className="mb-6">
-          <div className="font-bold text-lg text-center mb-3">{category}</div>
+          <div className="font-bold text-lg text-center mb-3 text-foreground">{category}</div>
           <div className="flex flex-col gap-1 sm:gap-2">
             {items.map((product, idx) => (
               <ProductLinkCard
@@ -35,7 +35,6 @@ export function ProductList({ products }: { products: Product[] }) {
     </div>
   );
 }
-
 export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, original_price }: {
   name: string;
   thumbnail: string;
@@ -44,10 +43,33 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
   price: number;
   original_price?: number;
 }) {
+  const renderPrice = () => {
+    if (price === 0) {
+      return <span className="text-base font-bold text-red-500">FREE</span>;
+    }
+
+    return (
+      <span className="text-base font-bold text-foreground">
+        {formatRupiah(price)}
+      </span>
+    );
+  };
+
+  const renderOriginalPrice = () => {
+    if (typeof original_price === 'number' && original_price > price) {
+      return (
+        <span className="line-through text-muted-foreground text-xs font-normal">
+          {formatRupiah(original_price)}
+        </span>
+      );
+    }
+    return null;
+  };
+
   return (
     <a
       href={url}
-      className={`block bg-white mb-3 rounded-lg shadow-sm hover:bg-blue-50 transition-shadow duration-200 w-full${isFeatured ? " border-2 border-blue-400 animate-headShake" : ""}`}
+      className={`block bg-card mb-3 rounded-lg shadow-sm border border-border/50 hover:bg-accent transition-all duration-200 w-full${isFeatured ? " border-2 border-primary/50 animate-headShake" : ""}`}
     >
       <div className="flex min-h-[130px]  ">
         {/* Left Section - Thumbnail */}
@@ -66,25 +88,18 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
         {/* Right Section - Information */}
         <div className="w-1/2 p-3 flex flex-col justify-between ">
           <div>
-            <div className="font-bold text-sm text-gray-900 mb-1 line-clamp-3 min-h-[48px]  ">
+            <div className="font-bold text-sm text-foreground mb-1 line-clamp-3 min-h-[48px]  ">
               {name}
             </div>
           </div>
 
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <div className="text-xs text-gray-500 mb-1">Price</div>
+              <div className="text-xs text-muted-foreground mb-1">Price</div>
               
               <div className="flex items-center gap-2">
-              <span className="text-base font-bold text-gray-900">
-                  {formatRupiah(price)}
-                </span>
-                {typeof original_price === 'number' && original_price > price && (
-                  <span className="line-through text-gray-400 text-xs font-normal">
-                    {formatRupiah(original_price)}
-                  </span>
-                )}
-               
+                {renderPrice()}
+                {renderOriginalPrice()}
               </div>
             </div>
         

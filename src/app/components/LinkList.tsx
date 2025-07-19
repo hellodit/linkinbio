@@ -18,17 +18,17 @@ export function LinkList() {
     <div>
       {Object.entries(groupedLinks).map(([category, items]) => (
         <div key={category} className="mb-6">
-          <div className="font-bold text-lg text-center mb-3">{category}</div>
+          <div className="font-bold text-lg text-center mb-3 text-foreground">{category}</div>
           <div className="flex flex-col gap-1 sm:gap-2">
             {items.map((link, idx) => (
               <a
                 key={link.url + idx}
                 href={link.url}
-                className={"flex mb-2 hover:bg-blue-50 items-center justify-between bg-white rounded-xl p-3 sm:p-4 shadow w-full max-w-sm sm:max-w-full mx-auto transition-shadow duration-200"}
+                className={"flex mb-2 hover:bg-accent items-center justify-between bg-card rounded-xl p-3 sm:p-4 shadow-sm border border-border/50 w-full max-w-sm sm:max-w-full mx-auto transition-all duration-200 hover:shadow-md"}
               >
-                <span className="font-semibold text-sm sm:text-base">{link.label}</span>
-                <Button size="icon" className="bg-blue-500 hover:bg-blue-600">
-                  <MoveUpRight className="text-white" />
+                <span className="font-semibold text-sm sm:text-base text-foreground">{link.label}</span>
+                <Button size="icon" className="bg-primary hover:bg-primary/90">
+                  <MoveUpRight className="text-primary-foreground" />
                 </Button>
               </a>
             ))}

@@ -46,7 +46,7 @@ export function ProductCarousel() {
         <CarouselContent className="-ml-4">
           {productList.map((product) => (
             <CarouselItem key={product.id} className="pl-4 basis-full">
-              <div className={`bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200${product.is_featured ? " border-2 border-blue-400 animate-headShake" : ""}`}>
+              <div className="bg-card rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-all duration-200">
                 <div className="flex flex-col h-full">
                   {/* Thumbnail */}
                   <div className="h-40 w-full relative">
@@ -62,20 +62,20 @@ export function ProductCarousel() {
                   {/* Info */}
                   <div className="p-3 flex flex-col flex-1 justify-between">
                     <div>
-                      <div className="font-bold text-sm text-gray-900 mb-1 line-clamp-2 min-h-[40px]">
+                      <div className="font-bold text-sm text-foreground mb-1 line-clamp-2 min-h-[40px]">
                         {product.name}
                       </div>
                     </div>
                     <div className="flex items-center justify-between mt-2">
                       <div>
-                        <div className="text-xs text-gray-500 mb-1">Price</div>
-                        <div className="text-sm font-bold text-gray-900">
+                        <div className="text-xs text-muted-foreground mb-1">Price</div>
+                        <div className="text-sm font-bold text-foreground">
                           {formatRupiah(product.price)}
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-xs text-gray-500 mb-1">Status</div>
-                        <div className="text-sm font-bold text-gray-900">
+                        <div className="text-xs text-muted-foreground mb-1">Status</div>
+                        <div className="text-sm font-bold text-foreground">
                           Available
                         </div>
                       </div>
