@@ -1,8 +1,20 @@
 [
   {
     "type": "default",
-    "label": "Login Portal Member",
+    "label": "👤 Login Portal Member",
     "url": "https://codingtengahmalam.myr.id/portal",
+    "category": "Featured Link"
+  }, 
+  {
+    "type": "default",
+    "label": "💻 Mentoring Laravel & Filament",
+    "url": "https://codingtengahmalam.myr.id/coaching/konsultasi-seputar-software-development",
+    "category": "Featured Link"
+  }, 
+  {
+    "type": "default",
+    "label": "💰 Daftar Sebagai Affiliate",
+    "url": "https://web.mayar.id/sign-in/referral/V25JMir",
     "category": "Featured Link"
   }
 ]
