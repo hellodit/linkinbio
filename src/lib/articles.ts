@@ -11,6 +11,8 @@ export interface ArticleMeta {
   title: string;
   date: string;
   excerpt: string;
+  category: string;
+  thumbnail: string;
 }
 
 export function getArticleSlugs(): string[] {
@@ -31,6 +33,8 @@ export function getArticleMeta(): ArticleMeta[] {
         title: data.title as string,
         date: data.date as string,
         excerpt: data.excerpt as string,
+        category: data.category as string,
+        thumbnail: data.thumbnail as string,
       } as ArticleMeta;
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -47,6 +51,8 @@ export async function getArticleBySlug(slug: string): Promise<{ meta: ArticleMet
       title: data.title as string,
       date: data.date as string,
       excerpt: data.excerpt as string,
+      category: data.category as string,
+      thumbnail: data.thumbnail as string,
     },
     content: processedContent.toString(),
   };
