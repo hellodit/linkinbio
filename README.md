@@ -45,6 +45,7 @@ Project ini adalah aplikasi Link in Bio modern yang dibangun dengan Next.js 15 (
 - **Links**: Edit `src/app/data/links.json` untuk menambah/mengubah link
 - **Products**: Edit `src/app/data/products.json` untuk menambah/mengubah produk digital
 - **Profile**: Edit data profil di `src/app/components/ProfileCard.tsx`
+- **Articles**: Tambah atau ubah file markdown di `src/content/articles/` untuk membuat artikel baru
 
 ## Data Structure
 
