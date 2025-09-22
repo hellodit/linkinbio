@@ -17,6 +17,16 @@ export function ProductFilterSort({ products }: { products: Product[] }) {
   const [featuredOnly, setFeaturedOnly] = React.useState<boolean>(searchParams.get("featured") === "1");
   const [sort, setSort] = React.useState<SortOption>((searchParams.get("sort") as SortOption) ?? "default");
 
+  const hasActiveFilters = category !== "all" || price !== "all" || featuredOnly || sort !== "default";
+  const activeCount = (category !== "all" ? 1 : 0) + (price !== "all" ? 1 : 0) + (featuredOnly ? 1 : 0) + (sort !== "default" ? 1 : 0);
+  const [isOpen, setIsOpen] = React.useState<boolean>(hasActiveFilters);
+
+  React.useEffect(() => {
+    if (hasActiveFilters) {
+      setIsOpen(true);
+    }
+  }, [hasActiveFilters]);
+
   const categories = React.useMemo(() => {
     const set = new Set<string>();
     products.forEach((p) => set.add(p.category || "Lainnya"));
@@ -91,56 +101,78 @@ export function ProductFilterSort({ products }: { products: Product[] }) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-col sm:flex-row gap-2">
-        <select
-          className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
-          value={category}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
-        >
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat === "all" ? "Semua Kategori" : cat}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
-          value={price}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setPrice(e.target.value as PriceFilter)}
-        >
-          <option value="all">Semua Harga</option>
-          <option value="free">Gratis</option>
-          <option value="paid">Berbayar</option>
-        </select>
-
-        <select
-          className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
-          value={sort}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSort(e.target.value as SortOption)}
-        >
-          <option value="default">Urutan Rekomendasi</option>
-          <option value="price_asc">Harga Terendah</option>
-          <option value="price_desc">Harga Tertinggi</option>
-          <option value="name_asc">Nama A-Z</option>
-          <option value="name_desc">Nama Z-A</option>
-        </select>
-      </div>
-
       <div className="flex items-center justify-between">
-        <label className="inline-flex items-center gap-2 text-sm text-foreground">
-          <input
-            type="checkbox"
-            className="h-4 w-4"
-            checked={featuredOnly}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFeaturedOnly(e.target.checked)}
-          />
-          Hanya Featured
-        </label>
-        <button type="button" onClick={clearAll} className="text-xs text-primary underline">
-          Reset
-        </button>
+        <div className="text-sm font-medium text-foreground">Filter & Sort</div>
+        <div className="flex items-center gap-3">
+          {hasActiveFilters && (
+            <span className="text-xs text-muted-foreground">{activeCount} aktif</span>
+          )}
+          <button
+            type="button"
+            onClick={() => setIsOpen((v) => !v)}
+            className="text-xs text-primary underline"
+            aria-expanded={isOpen}
+            aria-controls="filters-panel"
+          >
+            {isOpen ? "Sembunyikan" : "Tampilkan"}
+          </button>
+        </div>
       </div>
+
+      {isOpen && (
+        <div id="filters-panel" className="flex flex-col gap-3 p-3 rounded-md border border-border/50 bg-background/60">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <select
+              className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
+              value={category}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
+            >
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat === "all" ? "Semua Kategori" : cat}
+                </option>
+              ))}
+            </select>
+
+            <select
+              className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
+              value={price}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setPrice(e.target.value as PriceFilter)}
+            >
+              <option value="all">Semua Harga</option>
+              <option value="free">Gratis</option>
+              <option value="paid">Berbayar</option>
+            </select>
+
+            <select
+              className="w-full sm:w-1/3 rounded-md border border-border/50 bg-background p-2 text-sm"
+              value={sort}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSort(e.target.value as SortOption)}
+            >
+              <option value="default">Urutan Rekomendasi</option>
+              <option value="price_asc">Harga Terendah</option>
+              <option value="price_desc">Harga Tertinggi</option>
+              <option value="name_asc">Nama A-Z</option>
+              <option value="name_desc">Nama Z-A</option>
+            </select>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <label className="inline-flex items-center gap-2 text-sm text-foreground">
+              <input
+                type="checkbox"
+                className="h-4 w-4"
+                checked={featuredOnly}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFeaturedOnly(e.target.checked)}
+              />
+              Hanya Featured
+            </label>
+            <button type="button" onClick={clearAll} className="text-xs text-primary underline">
+              Reset
+            </button>
+          </div>
+        </div>
+      )}
 
       <ProductList products={filtered} />
     </div>
