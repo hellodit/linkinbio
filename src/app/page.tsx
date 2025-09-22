@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { ProfileCard } from "./components/ProfileCard";
 import { LinkList } from "./components/LinkList";
-import { ProductList } from "./components/ProductLinkCard";
+import { ProductFilterSort } from "./components/ProductFilterSort";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { getProducts } from "@/lib/products";
 
@@ -25,7 +25,7 @@ export default async function Home() {
 
         <div className="w-full flex flex-col gap-4">
           <div className="flex flex-col gap-1 sm:gap-2">
-            <ProductList products={products} />
+            <ProductFilterSort products={products} />
           </div>
           <LinkList />
         </div>
