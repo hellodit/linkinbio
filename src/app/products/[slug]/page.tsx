@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 
 import { getProductBySlug, getProductSlugs } from "@/lib/products";
 import { formatRupiah } from "@/lib/utils";
@@ -88,7 +88,7 @@ export default async function ProductDetailPage({
   return (
     <>
       <div className="px-4 py-10">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8">
+        <div className="mx-auto flex w-full max-w-lg flex-col gap-8 items-center">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-foreground"
@@ -110,15 +110,28 @@ export default async function ProductDetailPage({
               />
             </div>
 
-            <div className="grid gap-8 p-6 md:grid-cols-[2fr,1fr] md:p-10">
+            <div className="p-6 md:p-10">
               <div className="space-y-4">
                 <Badge variant="secondary" className="uppercase">
                   {category}
                 </Badge>
-                <h1 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
+                <h1 className="text-2xl font-bold leading-tight text-foreground md:text-3xl">
                   {name}
                 </h1>
-                <p className="text-base text-muted-foreground md:text-lg">
+                <div className="flex items-baseline justify-between rounded-xl border border-border/60 bg-background/60 p-4">
+                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Harga:</span>
+                  <div className="flex items-center gap-2">
+                    {typeof original_price === "number" && original_price > price ? (
+                      <span className="text-xs text-muted-foreground line-through">
+                        {formatRupiah(original_price)}
+                      </span>
+                    ) : null}
+                    <span className="text-xl font-semibold text-foreground">
+                      {isFree ? "Gratis" : formatRupiah(price)}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground md:text-base">
                   {summary}
                 </p>
 
@@ -137,27 +150,6 @@ export default async function ProductDetailPage({
                   </ul>
                 </section>
               </div>
-
-              <aside className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-background/60 p-6 shadow-sm">
-                <div className="space-y-1 text-right">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">
-                    Harga
-                  </span>
-                  <div className="flex items-center justify-end gap-2">
-                    {typeof original_price === "number" && original_price > price ? (
-                      <span className="text-sm text-muted-foreground line-through">
-                        {formatRupiah(original_price)}
-                      </span>
-                    ) : null}
-                    <span className="text-2xl font-semibold text-foreground">
-                      {isFree ? "FREE" : formatRupiah(price)}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  Gunakan tombol melayang di kanan bawah untuk melanjutkan ke halaman penawaran resmi Coding Tengah Malam.
-                </p>
-              </aside>
             </div>
           </div>
 
@@ -174,16 +166,17 @@ export default async function ProductDetailPage({
           ) : null}
         </div>
       </div>
-      <div className="fixed inset-x-4 bottom-6 z-50 md:inset-x-auto md:right-10 md:bottom-10">
-        <div className="mx-auto flex max-w-5xl justify-end">
-          <div className="w-full max-w-sm rounded-full border border-border/60 bg-background/95 p-1 shadow-2xl backdrop-blur">
+      <div className="fixed inset-x-0 bottom-0 z-50 px-4 bg-white">
+        <div className="mx-auto flex max-w-lg justify-center py-4">
+          <div className="w-full max-w-lg p-1   ">
             <Button
               asChild
               size="lg"
               variant="default"
-              className="w-full rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90"
+              className="w-full text-primary-foreground hover:bg-primary/90"
             >
-              <a href={url} target="_blank" rel="noopener noreferrer">
+              <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                <ArrowUpRight className="w-4 h-4" />
                 {ctaLabel}
               </a>
             </Button>
