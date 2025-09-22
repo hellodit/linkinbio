@@ -2,6 +2,7 @@ import React from "react";
 import { formatRupiah } from "@/lib/utils";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
+import Link from "next/link";
 
 export function ProductList({ products }: { products: Product[] }) {
   // Group products by category
@@ -24,6 +25,7 @@ export function ProductList({ products }: { products: Product[] }) {
                 name={product.name}
                 thumbnail={product.thumbnail}
                 url={product.url}
+                slug={product.slug}
                 isFeatured={product.is_featured === true}
                 price={product.price}
                 original_price={product.original_price}
@@ -35,10 +37,11 @@ export function ProductList({ products }: { products: Product[] }) {
     </div>
   );
 }
-export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, original_price }: {
+export function ProductLinkCard({ name, thumbnail, url, slug, isFeatured, price, original_price }: {
   name: string;
   thumbnail: string;
   url: string;
+  slug?: string;
   isFeatured?: boolean;
   price: number;
   original_price?: number;
@@ -66,12 +69,8 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
     return null;
   };
 
-  return (
-    <a
-      href={url}
-      className={`block bg-card mb-3 rounded-lg shadow-sm border border-border/50 hover:bg-accent transition-all duration-200 w-full${isFeatured ? " border-2 border-primary/50 animate-headShake" : ""}`}
-    >
-      <div className="flex min-h-[130px]  ">
+  const cardContent = (
+    <div className="flex min-h-[130px]">
         {/* Left Section - Thumbnail */}
         <div className="w-1/2 relative">
           <Image
@@ -85,13 +84,12 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
             priority={Boolean(isFeatured)}
             style={{ objectFit: "cover" }}
           />
-         
         </div>
 
         {/* Right Section - Information */}
-        <div className="w-1/2 p-3 flex flex-col justify-between ">
+        <div className="w-1/2 p-3 flex flex-col justify-between">
           <div>
-            <div className="font-bold text-sm text-foreground mb-1 line-clamp-3 min-h-[48px]  ">
+            <div className="font-bold text-sm text-foreground mb-1 line-clamp-3 min-h-[48px]">
               {name}
             </div>
           </div>
@@ -99,16 +97,33 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <div className="text-xs text-muted-foreground mb-1">Price</div>
-              
+
               <div className="flex items-center gap-2">
                 {renderPrice()}
                 {renderOriginalPrice()}
               </div>
             </div>
-        
+
           </div>
         </div>
       </div>
+  );
+
+  const baseClass = `block bg-card mb-3 rounded-lg shadow-sm border border-border/50 hover:bg-accent transition-all duration-200 w-full${
+    isFeatured ? " border-2 border-primary/50 animate-headShake" : ""
+  }`;
+
+  if (slug) {
+    return (
+      <Link href={`/products/${slug}`} className={baseClass}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={url} className={baseClass} target="_blank" rel="noopener noreferrer">
+      {cardContent}
     </a>
   );
-} 
+}
