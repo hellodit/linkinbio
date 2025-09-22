@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
 import React from "react";
 import { formatRupiah } from "@/lib/utils";
-import products from "@/app/data/products.json";
 import {
   Carousel,
   CarouselContent,
@@ -14,9 +13,12 @@ import Autoplay from "embla-carousel-autoplay";
 import { Product } from "@/app/types/product";
 import Image from "next/image";
 
-export function ProductCarousel() {
-  // Filter dan mapping data dari products.json
-  const productList = (products as Product[]).map((item): Product => ({
+interface ProductCarouselProps {
+  products: Product[];
+}
+
+export function ProductCarousel({ products }: ProductCarouselProps) {
+  const productList = products.map((item): Product => ({
     id: item.id,
     name: item.name,
     thumbnail: item.thumbnail,
@@ -25,14 +27,19 @@ export function ProductCarousel() {
     is_featured: item.is_featured,
     category: item.category,
     type: item.type,
+    slug: item.slug,
+    coverImage: item.coverImage,
+    summary: item.summary,
+    original_price: item.original_price,
+    sneakPeek: item.sneakPeek,
+    highlights: item.highlights,
+    position: item.position,
   }));
 
-  const autoplay = React.useRef(
-    Autoplay({ delay: 2500, stopOnInteraction: true })
-  );
+  const autoplay = React.useRef(Autoplay({ delay: 2500, stopOnInteraction: true }));
 
   return (
-    <Carousel 
+    <Carousel
       opts={{
         align: "start",
         loop: true,
@@ -48,7 +55,6 @@ export function ProductCarousel() {
             <CarouselItem key={product.id} className="pl-4 basis-full">
               <div className="bg-card rounded-lg shadow-sm border border-border/50 hover:shadow-md transition-all duration-200">
                 <div className="flex flex-col h-full">
-                  {/* Thumbnail */}
                   <div className="h-40 w-full relative">
                     <Image
                       src={product.thumbnail}
@@ -61,7 +67,6 @@ export function ProductCarousel() {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  {/* Info */}
                   <div className="p-3 flex flex-col flex-1 justify-between">
                     <div>
                       <div className="font-bold text-sm text-foreground mb-1 line-clamp-2 min-h-[40px]">
@@ -77,9 +82,7 @@ export function ProductCarousel() {
                       </div>
                       <div className="text-right">
                         <div className="text-xs text-muted-foreground mb-1">Status</div>
-                        <div className="text-sm font-bold text-foreground">
-                          Available
-                        </div>
+                        <div className="text-sm font-bold text-foreground">Available</div>
                       </div>
                     </div>
                   </div>
@@ -93,4 +96,4 @@ export function ProductCarousel() {
       </div>
     </Carousel>
   );
-} 
+}

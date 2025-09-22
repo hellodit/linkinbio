@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 
 import { getProductBySlug, getProductSlugs } from "@/lib/products";
 import { formatRupiah } from "@/lib/utils";
@@ -11,7 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { SneakPeekCarousel } from "@/app/components/SneakPeekCarousel";
 
 export async function generateStaticParams() {
-  return getProductSlugs().map((slug) => ({ slug }));
+  const slugs = await getProductSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -62,7 +63,7 @@ export default async function ProductDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     notFound();
@@ -71,22 +72,30 @@ export default async function ProductDetailPage({
   const {
     name,
     category,
-    description,
     summary,
-    highlights,
     price,
     original_price,
     url,
     coverImage,
     thumbnail,
     sneakPeek,
+    highlights,
+    content,
+    ctaLabel,
+    ctaUrl,
+    ctaHelperText,
+    disableStickyCta,
   } = product;
 
   const isFree = price === 0;
-  const ctaLabel = isFree ? "Download Gratis" : "Beli Sekarang";
+  const finalCtaLabel = ctaLabel ?? (isFree ? "Download Gratis" : "Beli Sekarang");
+  const finalCtaUrl = ctaUrl ?? url;
+  const hasSneakPeek = Array.isArray(sneakPeek) && sneakPeek.length > 0;
+  const hasHighlights = Array.isArray(highlights) && highlights.length > 0;
+  const showStickyCta = disableStickyCta !== true;
 
   return (
-    <>
+    <div className="pb-24">
       <div className="px-4 py-10">
         <div className="mx-auto flex w-full max-w-lg flex-col gap-8 items-center">
           <Link
@@ -111,78 +120,94 @@ export default async function ProductDetailPage({
             </div>
 
             <div className="p-6 md:p-10">
-              <div className="space-y-4">
-                <Badge variant="secondary" className="uppercase">
-                  {category}
-                </Badge>
-                <h1 className="text-2xl font-bold leading-tight text-foreground md:text-3xl">
-                  {name}
-                </h1>
-                <div className="flex items-baseline justify-between rounded-xl border border-border/60 bg-background/60 p-4">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">Harga:</span>
-                  <div className="flex items-center gap-2">
-                    {typeof original_price === "number" && original_price > price ? (
-                      <span className="text-xs text-muted-foreground line-through">
-                        {formatRupiah(original_price)}
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <Badge variant="secondary" className="uppercase">
+                    {category}
+                  </Badge>
+                  <h1 className="text-2xl font-bold leading-tight text-foreground md:text-3xl">
+                    {name}
+                  </h1>
+                  <div className="flex items-baseline justify-between rounded-xl border border-border/60 bg-background/60 p-4">
+                    <span className="text-xs uppercase tracking-wide text-muted-foreground">Harga:</span>
+                    <div className="flex items-center gap-2">
+                      {typeof original_price === "number" && original_price > price ? (
+                        <span className="text-xs text-muted-foreground line-through">
+                          {formatRupiah(original_price)}
+                        </span>
+                      ) : null}
+                      <span className="text-xl font-semibold text-foreground">
+                        {isFree ? "Gratis" : formatRupiah(price)}
                       </span>
-                    ) : null}
-                    <span className="text-xl font-semibold text-foreground">
-                      {isFree ? "Gratis" : formatRupiah(price)}
-                    </span>
+                    </div>
                   </div>
-                </div>
-                <p className="text-sm text-muted-foreground md:text-base">
-                  {summary}
-                </p>
-
-                <section className="space-y-3">
-                  <h2 className="text-lg font-semibold text-foreground">Apa saja di dalamnya</h2>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {description}
+                  <p className="text-sm text-muted-foreground md:text-base">
+                    {summary}
                   </p>
-                  <ul className="space-y-2">
-                    {highlights.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                        <Check className="mt-0.5 h-4 w-4 text-primary" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                </div>
+
+                <section className="space-y-6">
+                  <div className="space-y-4 text-left">{content}</div>
+
+                  {hasHighlights ? (
+                    <div className="rounded-2xl border border-border/60 bg-background/80 p-4 space-y-3">
+                      <h2 className="text-lg font-semibold text-foreground">Highlight utama</h2>
+                      <ul className="space-y-2">
+                        {highlights.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-sm text-foreground">
+                            <Check className="mt-0.5 h-4 w-4 text-primary" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+
+                  {hasSneakPeek ? (
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h2 className="text-xl font-semibold text-foreground">Sneak Peek</h2>
+                        <span className="text-xs text-muted-foreground">
+                          Geser untuk melihat preview konten
+                        </span>
+                      </div>
+                      <SneakPeekCarousel images={sneakPeek} productName={name} />
+                    </div>
+                  ) : null}
                 </section>
               </div>
             </div>
           </div>
-
-          {sneakPeek.length > 0 ? (
-            <section className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <h2 className="text-xl font-semibold text-foreground">Sneak Peek</h2>
-                <span className="text-xs text-muted-foreground">
-                  Geser untuk melihat preview konten
-                </span>
-              </div>
-              <SneakPeekCarousel images={sneakPeek} productName={name} />
-            </section>
-          ) : null}
         </div>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-50 px-4 bg-white">
-        <div className="mx-auto flex max-w-lg justify-center py-4">
-          <div className="w-full max-w-lg p-1   ">
-            <Button
-              asChild
-              size="lg"
-              variant="default"
-              className="w-full text-primary-foreground hover:bg-primary/90"
-            >
-              <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                <ArrowUpRight className="w-4 h-4" />
-                {ctaLabel}
-              </a>
-            </Button>
+
+      {showStickyCta ? (
+        <div className="fixed inset-x-0 bottom-0 z-50 px-4 bg-white dark:bg-background/95">
+          <div className="mx-auto flex max-w-lg justify-center py-4">
+            <div className="w-full max-w-lg p-1 space-y-2">
+              {ctaHelperText ? (
+                <p className="text-xs text-muted-foreground text-center">{ctaHelperText}</p>
+              ) : null}
+              <Button
+                asChild
+                size="lg"
+                variant="default"
+                className="w-full text-primary-foreground hover:bg-primary/90"
+              >
+                <a
+                  href={finalCtaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                  {finalCtaLabel}
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </>
+      ) : null}
+    </div>
   );
 }

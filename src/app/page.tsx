@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
+
 import { ProfileCard } from "./components/ProfileCard";
 import { LinkList } from "./components/LinkList";
 import { ProductList } from "./components/ProductLinkCard";
-import { Product } from "./types/product";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import productsData from "./data/products.json";
+import { getProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Asdita - @codingtengahmalam",
-  description: "Link in Bio untuk Coding Tengah Malam - Portal member, produk digital, dan resource lainnya",
+  description:
+    "Link in Bio untuk Coding Tengah Malam - Portal member, produk digital, dan resource lainnya",
 };
 
-export default function Home() {
-  const products: Product[] = productsData as Product[];
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <div className="font-sans min-h-screen bg-background bg-[#F8F8F8] flex flex-col items-center px-4 transition-colors duration-300">
       <div className="bg-card w-full max-w-lg flex flex-col gap-2 md:w-full items-center mx-auto shadow-lg border border-border/50 p-4 rounded-lg">

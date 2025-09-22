@@ -1,4 +1,6 @@
-export interface Product {
+import { ReactNode } from "react";
+
+export interface ProductFrontmatter {
   id: string;
   slug: string;
   category: string;
@@ -11,7 +13,17 @@ export interface Product {
   original_price?: number;
   is_featured?: boolean;
   summary: string;
-  description: string;
-  highlights: string[];
   sneakPeek: string[];
+  highlights?: string[];
+  position?: number;
+  ctaLabel?: string;
+  ctaUrl?: string;
+  ctaHelperText?: string;
+  disableStickyCta?: boolean;
 }
+
+export interface ProductDocument extends ProductFrontmatter {
+  content: ReactNode;
+}
+
+export type Product = ProductFrontmatter;
