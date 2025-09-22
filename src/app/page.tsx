@@ -3,7 +3,6 @@ import { ProfileCard } from "./components/ProfileCard";
 import { LinkList } from "./components/LinkList";
 import { ProductList } from "./components/ProductLinkCard";
 import { Product } from "./types/product";
-import { ProductCarousel } from "./components/ProductCarousel";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import productsData from "./data/products.json";
 

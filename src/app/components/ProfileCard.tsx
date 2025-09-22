@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Instagram, Youtube } from "lucide-react";
 
@@ -14,9 +14,15 @@ export function ProfileCard() {
       <div className="h-20 w-full bg-cover bg-center rounded-b-xl"  />
       {/* Avatar & Main Info */}
       <div className="flex flex-col items-center -mt-16">
-        <Avatar className="w-25 h-25 border-4 border-background shadow-lg">
-          <AvatarImage src="/images/avatar.png" alt="Asdita Prasetya" />
-        </Avatar>
+        <Image
+          src="/images/avatar.png"
+          alt="Asdita Prasetya"
+          width={160}
+          height={160}
+          priority
+          className="h-32 w-32 md:h-36 md:w-36 rounded-full border-4 border-background shadow-lg object-cover"
+          sizes="(min-width: 768px) 144px, 128px"
+        />
         <div className="mt-4 text-center px-4">
           <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground ring-1 ring-border ring-inset">
             @codingtengahmalam          

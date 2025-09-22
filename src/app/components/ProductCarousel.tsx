@@ -55,7 +55,9 @@ export function ProductCarousel() {
                       alt={product.name}
                       className="w-full h-full object-cover rounded-t-lg"
                       fill
-                      sizes="100vw"
+                      sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 90vw"
+                      quality={70}
+                      loading="lazy"
                       style={{ objectFit: "cover" }}
                     />
                   </div>

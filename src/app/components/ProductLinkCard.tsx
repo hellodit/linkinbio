@@ -79,7 +79,10 @@ export function ProductLinkCard({ name, thumbnail, url, isFeatured, price, origi
             alt={name}
             className="w-full h-full object-cover rounded-l-lg"
             fill
-            sizes="100vw"
+            sizes="(min-width: 1024px) 320px, (min-width: 768px) 45vw, 50vw"
+            quality={70}
+            loading={isFeatured ? "eager" : "lazy"}
+            priority={Boolean(isFeatured)}
             style={{ objectFit: "cover" }}
           />
          
