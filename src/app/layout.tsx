@@ -30,6 +30,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <link rel="preconnect" href="https://codingtengahmalam.myr.id" />
+        <link rel="dns-prefetch" href="https://codingtengahmalam.myr.id" />
         <ThemeProvider>
           <NavBar />
           {children}

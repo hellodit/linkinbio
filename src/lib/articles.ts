@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { cache } from 'react';
 
 const articlesDirectory = path.join(process.cwd(), 'src/content/articles');
 
@@ -13,14 +14,14 @@ export interface ArticleMeta {
   excerpt: string;
 }
 
-export function getArticleSlugs(): string[] {
+export const getArticleSlugs = cache(function getArticleSlugs(): string[] {
   return fs
     .readdirSync(articlesDirectory)
     .filter((file) => file.endsWith('.md'))
     .map((file) => file.replace(/\.md$/, ''));
-}
+});
 
-export function getArticleMeta(): ArticleMeta[] {
+export const getArticleMeta = cache(function getArticleMeta(): ArticleMeta[] {
   return getArticleSlugs()
     .map((slug) => {
       const filePath = path.join(articlesDirectory, `${slug}.md`);
@@ -34,9 +35,9 @@ export function getArticleMeta(): ArticleMeta[] {
       } as ArticleMeta;
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
+});
 
-export async function getArticleBySlug(slug: string): Promise<{ meta: ArticleMeta; content: string }> {
+export const getArticleBySlug = cache(async function getArticleBySlug(slug: string): Promise<{ meta: ArticleMeta; content: string }> {
   const filePath = path.join(articlesDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -50,4 +51,6 @@ export async function getArticleBySlug(slug: string): Promise<{ meta: ArticleMet
     },
     content: processedContent.toString(),
   };
-}
+});
+
+export const revalidate = 3600;

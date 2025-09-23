@@ -5,6 +5,9 @@ export const metadata = {
   title: 'Artikel',
 };
 
+export const revalidate = 1800;
+export const dynamic = "force-static";
+
 export default async function ArticlesPage() {
   const articles = getArticleMeta();
   return (

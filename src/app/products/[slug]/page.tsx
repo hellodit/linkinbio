@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 
@@ -8,7 +9,13 @@ import { getProductBySlug, getProductSlugs } from "@/lib/products";
 import { formatRupiah } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SneakPeekCarousel } from "@/app/components/SneakPeekCarousel";
+const SneakPeekCarousel = dynamic(
+  () => import("@/app/components/SneakPeekCarousel").then((m) => m.SneakPeekCarousel),
+  { ssr: false, loading: () => null }
+);
+
+export const revalidate = 3600;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const slugs = await getProductSlugs();
