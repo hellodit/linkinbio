@@ -80,9 +80,11 @@ export function CodeBlock({
         lineHeight: "1.5",
         padding: isFullScreen ? "2rem" : "1rem",
         background: theme === "dark" ? "#1e1e1e" : "#ffffff",
-        minWidth: "100%",
+        minWidth: "fit-content",
+        width: "auto",
         maxHeight: isFullScreen ? "none" : maxHeight,
-        overflow: isFullScreen ? "visible" : "auto",
+        overflow: "visible",
+        whiteSpace: "pre",
       }}
     >
       {children}
@@ -145,8 +147,10 @@ export function CodeBlock({
             className="overflow-auto"
             style={{ maxHeight }}
           >
-            <div className="min-w-full w-fit">
-              <CodeContent />
+            <div className="min-w-0 w-full">
+              <div className="overflow-x-auto">
+                <CodeContent />
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +205,9 @@ export function CodeBlock({
 
             {/* Lightbox Content */}
             <div className="overflow-auto max-h-[calc(90vh-80px)]">
-              <CodeContent isFullScreen />
+              <div className="overflow-x-auto">
+                <CodeContent isFullScreen />
+              </div>
             </div>
           </div>
         </div>
