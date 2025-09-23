@@ -42,7 +42,7 @@ export function CodeBlock({
   const style = theme === "dark" ? oneDark : oneLight;
 
   return (
-    <div className={cn("relative group w-full max-w-full", className)}>
+    <div className={cn("relative group w-full", className)}>
       {/* Header with title and copy button */}
       {(title || true) && (
         <div className="flex items-center justify-between px-4 py-2 bg-muted border-b border-border rounded-t-lg">
@@ -114,6 +114,15 @@ export function CodeBlock({
               overflow: "hidden",
               wordBreak: "break-all",
               overflowWrap: "break-word",
+              whiteSpace: "pre-wrap",
+            }}
+            codeTagProps={{
+              style: {
+                wordBreak: "break-all",
+                overflowWrap: "break-word",
+                whiteSpace: "pre-wrap",
+                maxWidth: "100%",
+              }
             }}
           >
             {children}
