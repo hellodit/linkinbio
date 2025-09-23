@@ -56,7 +56,22 @@ Berikut adalah contoh embed video menggunakan komponent `Video` dari MDX.
 
 Di bawah ini contoh render HTML kustom langsung di MDX menggunakan `CustomHTML`.
 
+### Method 1: Menggunakan html prop
+
 <CustomHTML html={'<div style="padding:12px;border:1px dashed #999;border-radius:8px"><strong>HTML Kustom:</strong> Ini konten <em>raw HTML</em> yang dirender lewat komponen.</div>'} />
+
+### Method 2: Menggunakan JSX children (dengan style string)
+
+<CustomHTML> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xA4uF1u5rlU?si=3-zHFZvshtEQxqGR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</CustomHTML>
+
+### Method 3: Menggunakan JSX children (dengan style object)
+
+<CustomHTML> 
+  <div style={{padding: "12px", border: "1px dashed #999", borderRadius: "8px"}}><strong>HTML Kustom:</strong> Ini konten <em>raw HTML</em> yang dirender lewat komponen.</div>
+</CustomHTML>
+
 
 ## Contoh Highlights Component
 
