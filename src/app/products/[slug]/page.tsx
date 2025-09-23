@@ -50,7 +50,7 @@ export async function generateMetadata({
             },
           ]
         : undefined,
-      type: 'product',
+      type: 'website',
       url: `/products/${slug}`,
     },
     twitter: {
