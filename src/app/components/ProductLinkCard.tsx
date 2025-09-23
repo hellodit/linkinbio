@@ -115,7 +115,7 @@ export function ProductLinkCard({ name, thumbnail, url, slug, isFeatured, price,
 
   if (slug) {
     return (
-      <Link href={`/products/${slug}`} className={baseClass}>
+      <Link href={`/products/${slug}`} className={baseClass} prefetch={false}>
         {cardContent}
       </Link>
     );

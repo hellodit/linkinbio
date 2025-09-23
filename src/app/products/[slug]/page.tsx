@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SneakPeekCarousel } from "@/app/components/SneakPeekCarousel";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   const slugs = await getProductSlugs();
   return slugs.map((slug) => ({ slug }));
