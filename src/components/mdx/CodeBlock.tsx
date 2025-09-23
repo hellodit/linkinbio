@@ -78,7 +78,7 @@ export function CodeBlock({
 
       {/* Code block */}
       <div className="rounded-b-lg overflow-hidden">
-        <div className="overflow-x-auto max-w-full">
+        <div className="overflow-x-auto">
           <SyntaxHighlighter
             language={language}
             style={style}
@@ -109,8 +109,8 @@ export function CodeBlock({
               lineHeight: "1.5",
               padding: "1rem",
               background: theme === "dark" ? "#1e1e1e" : "#ffffff",
-              minWidth: "fit-content",
               whiteSpace: "pre",
+              minWidth: "max-content",
             }}
             codeTagProps={{
               style: {
