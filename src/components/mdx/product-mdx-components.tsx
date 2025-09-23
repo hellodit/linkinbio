@@ -1,13 +1,13 @@
 import type { JSX } from "react";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Video } from "./Video";
+import { SneakPeek } from "./SneakPeek";
 import { cn } from "@/lib/utils";
 
 import { Callout } from "./Callout";
 import { FeatureGrid } from "./FeatureGrid";
 import { OrderCTA } from "./OrderCTA";
-import { Video } from "./Video";
 import { CustomHTML } from "./CustomHTML";
-import { SneakPeek } from "./SneakPeek";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
