@@ -36,14 +36,18 @@ export function Collapsible({
           const isOpen = openIndex === index;
           
           return (
-            <div key={index} className="rounded-lg border bg-card">
+            <div key={index} className={cn(
+              "rounded-lg border bg-card transition-colors",
+              isOpen && "ring-2 ring-ring/20"
+            )}>
               <button
                 type="button"
                 onClick={() => toggleItem(index)}
                 className={cn(
-                  "w-full flex items-center justify-between p-4 text-left",
+                  "w-full flex items-center justify-between p-4 text-left rounded-lg",
                   "hover:bg-muted/50 transition-colors",
-                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-inset"
+                  "focus:outline-none focus:bg-muted/50",
+                  isOpen && "bg-muted/30"
                 )}
               >
                 <span className="text-sm font-medium">
@@ -51,8 +55,8 @@ export function Collapsible({
                 </span>
                 <ChevronDown 
                   className={cn(
-                    "h-4 w-4 text-muted-foreground transition-transform duration-200",
-                    isOpen && "rotate-180"
+                    "h-4 w-4 text-muted-foreground transition-all duration-200",
+                    isOpen && "rotate-180 text-foreground"
                   )} 
                 />
               </button>
@@ -78,14 +82,18 @@ export function Collapsible({
           const isOpen = openIndex === index;
           
           return (
-            <div key={index} className="border-b border-border last:border-b-0">
+            <div key={index} className={cn(
+              "border-b border-border last:border-b-0 transition-colors",
+              isOpen && "bg-muted/20"
+            )}>
               <button
                 type="button"
                 onClick={() => toggleItem(index)}
                 className={cn(
                   "w-full flex items-center justify-between py-4 text-left",
                   "hover:bg-muted/50 transition-colors",
-                  "focus:outline-none focus:ring-2 focus:ring-ring focus:ring-inset"
+                  "focus:outline-none focus:bg-muted/50",
+                  isOpen && "bg-muted/30"
                 )}
               >
                 <span className="text-sm font-medium">
@@ -93,8 +101,8 @@ export function Collapsible({
                 </span>
                 <ChevronDown 
                   className={cn(
-                    "h-4 w-4 text-muted-foreground transition-transform duration-200",
-                    isOpen && "rotate-180"
+                    "h-4 w-4 text-muted-foreground transition-all duration-200",
+                    isOpen && "rotate-180 text-foreground"
                   )} 
                 />
               </button>
