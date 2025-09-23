@@ -78,7 +78,7 @@ export function CodeBlock({
 
       {/* Code block */}
       <div className="rounded-b-lg overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto max-w-full">
           <SyntaxHighlighter
             language={language}
             style={style}
@@ -91,7 +91,7 @@ export function CodeBlock({
               borderRight: theme === "dark" ? "1px solid #374151" : "1px solid #e5e7eb",
               marginRight: "1em",
             }}
-            wrapLines={true}
+            wrapLines={false}
             lineProps={(lineNumber) => {
               const isHighlighted = highlightLines.includes(lineNumber);
               return {
@@ -109,15 +109,12 @@ export function CodeBlock({
               lineHeight: "1.5",
               padding: "1rem",
               background: theme === "dark" ? "#1e1e1e" : "#ffffff",
-              width: "100%",
-              maxWidth: "100%",
-              overflow: "hidden",
+              minWidth: "fit-content",
               whiteSpace: "pre",
             }}
             codeTagProps={{
               style: {
                 whiteSpace: "pre",
-                maxWidth: "100%",
               }
             }}
           >
