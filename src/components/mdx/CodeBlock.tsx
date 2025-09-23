@@ -112,6 +112,8 @@ export function CodeBlock({
               width: "100%",
               maxWidth: "100%",
               overflow: "hidden",
+              wordBreak: "break-all",
+              overflowWrap: "break-word",
             }}
           >
             {children}

@@ -116,6 +116,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
+  html, body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
   body {
     @apply bg-background text-foreground;
   }
@@ -146,5 +153,63 @@
   /* Ensure long lines wrap instead of causing horizontal scroll */
   .mdx-content .react-syntax-highlighter code {
     @apply whitespace-pre-wrap break-all;
+  }
+  
+  /* Mobile-specific fixes for code blocks */
+  @media (max-width: 768px) {
+    .mdx-content {
+      @apply w-full max-w-full overflow-hidden;
+    }
+    
+    .mdx-content .react-syntax-highlighter {
+      @apply w-full max-w-full overflow-hidden;
+    }
+    
+    .mdx-content .react-syntax-highlighter pre {
+      @apply w-full max-w-full overflow-x-auto;
+      font-size: 12px;
+      padding: 0.75rem !important;
+    }
+    
+    .mdx-content .react-syntax-highlighter code {
+      @apply whitespace-pre-wrap break-all;
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+    
+    /* Ensure code blocks don't exceed viewport width */
+    .mdx-content pre[class*="language-"] {
+      @apply w-full max-w-full overflow-x-auto;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    /* Force container width constraints on mobile */
+    .mdx-content * {
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+    
+    /* Specific fix for SyntaxHighlighter on mobile */
+    .mdx-content .react-syntax-highlighter pre code {
+      white-space: pre-wrap !important;
+      word-break: break-all !important;
+      overflow-wrap: break-word !important;
+      max-width: 100% !important;
+    }
+    
+    /* Prevent any element from causing horizontal overflow */
+    .mdx-content,
+    .mdx-content *,
+    .mdx-content pre,
+    .mdx-content code,
+    .mdx-content .react-syntax-highlighter,
+    .mdx-content .react-syntax-highlighter pre,
+    .mdx-content .react-syntax-highlighter code {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      word-wrap: break-word !important;
+      word-break: break-all !important;
+    }
   }
 }

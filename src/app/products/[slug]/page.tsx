@@ -118,7 +118,7 @@ export default async function ProductDetailPage({
         }}
       />
       <div className="px-4 py-10">
-        <div className="mx-auto flex w-full max-w-lg flex-col gap-8 items-center">
+        <div className="mx-auto flex w-full max-w-lg flex-col gap-8 items-center overflow-hidden">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition hover:text-foreground"
