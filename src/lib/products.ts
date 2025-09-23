@@ -70,23 +70,7 @@ function toBoolean(value: unknown): boolean | undefined {
   return Boolean(value);
 }
 
-function toStringArray(value: unknown): string[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
 
-  return value
-    .map((item) => {
-      if (typeof item === "string") {
-        return item.trim();
-      }
-      if (item == null) {
-        return "";
-      }
-      return String(item);
-    })
-    .filter((item) => item.length > 0);
-}
 
 function normalizeFrontmatter(slug: string, data: RawFrontmatter): ProductFrontmatter {
   const id = assertString(data.id ?? slug, "id", slug);

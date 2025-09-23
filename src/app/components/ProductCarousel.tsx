@@ -31,8 +31,6 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
     coverImage: item.coverImage,
     summary: item.summary,
     original_price: item.original_price,
-    sneakPeek: item.sneakPeek,
-    highlights: item.highlights,
     position: item.position,
   }));
 

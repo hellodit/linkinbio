@@ -26,7 +26,7 @@ function processChildren(children: ReactNode): ReactNode {
     return children;
   }
 
-  const element = children as ReactElement<any>;
+  const element = children as ReactElement<Record<string, unknown>>;
   const { style, ...otherProps } = element.props;
   
   // If style is a string, convert it to an object
@@ -39,7 +39,7 @@ function processChildren(children: ReactNode): ReactNode {
   const processedChildren = element.props.children ? 
     (Array.isArray(element.props.children) 
       ? element.props.children.map(processChildren)
-      : processChildren(element.props.children)
+      : processChildren(element.props.children as ReactNode)
     ) : element.props.children;
 
   return cloneElement(element, {
