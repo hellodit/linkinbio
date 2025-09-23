@@ -7,6 +7,7 @@ import { FeatureGrid } from "./FeatureGrid";
 import { OrderCTA } from "./OrderCTA";
 import { Video } from "./Video";
 import { CustomHTML } from "./CustomHTML";
+import { SneakPeek } from "./SneakPeek";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -24,6 +25,7 @@ type ProductMDXComponents = {
   OrderCTA: typeof OrderCTA;
   Video: typeof Video;
   CustomHTML: typeof CustomHTML;
+  SneakPeek: typeof SneakPeek;
 };
 
 export const productMdxComponents: ProductMDXComponents = {
@@ -75,4 +77,5 @@ export const productMdxComponents: ProductMDXComponents = {
   OrderCTA,
   Video,
   CustomHTML,
+  SneakPeek,
 };
