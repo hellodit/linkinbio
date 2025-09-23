@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Callout } from "./Callout";
 import { FeatureGrid } from "./FeatureGrid";
 import { OrderCTA } from "./OrderCTA";
+import { Video } from "./Video";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -20,6 +21,7 @@ type ProductMDXComponents = {
   Callout: typeof Callout;
   FeatureGrid: typeof FeatureGrid;
   OrderCTA: typeof OrderCTA;
+  Video: typeof Video;
 };
 
 export const productMdxComponents: ProductMDXComponents = {
@@ -69,4 +71,5 @@ export const productMdxComponents: ProductMDXComponents = {
   Callout,
   FeatureGrid,
   OrderCTA,
+  Video,
 };
