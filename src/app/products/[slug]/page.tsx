@@ -34,6 +34,9 @@ export async function generateMetadata({
   return {
     title: `${name} | Coding Tengah Malam`,
     description: summary,
+    alternates: {
+      canonical: `/products/${slug}`,
+    },
     openGraph: {
       title: name,
       description: summary,
@@ -47,6 +50,8 @@ export async function generateMetadata({
             },
           ]
         : undefined,
+      type: 'website',
+      url: `/products/${slug}`,
     },
     twitter: {
       card: "summary_large_image",
@@ -96,6 +101,27 @@ export default async function ProductDetailPage({
 
   return (
     <div className="pb-24">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name,
+            description: summary,
+            image: coverImage || thumbnail,
+            category,
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'IDR',
+              price: typeof price === 'number' ? price : undefined,
+              url: typeof url === 'string' ? url : undefined,
+              availability: 'https://schema.org/InStock',
+            },
+          }),
+        }}
+      />
       <div className="px-4 py-10">
         <div className="mx-auto flex w-full max-w-lg flex-col gap-8 items-center">
           <Link
