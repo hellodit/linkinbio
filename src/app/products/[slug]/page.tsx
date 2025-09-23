@@ -168,7 +168,7 @@ export default async function ProductDetailPage({
                 </div>
 
                 <section className="space-y-6">
-                  <div className="space-y-4 text-left">{content}</div>
+                  <div className="space-y-4 text-left mdx-content">{content}</div>
 
 
                 </section>

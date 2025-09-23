@@ -119,4 +119,32 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Ensure MDX content respects container width */
+  .mdx-content {
+    @apply w-full max-w-full overflow-hidden;
+  }
+  
+  /* Fix for SyntaxHighlighter overflow issues */
+  .mdx-content pre {
+    @apply max-w-full overflow-x-auto;
+  }
+  
+  .mdx-content pre code {
+    @apply whitespace-pre-wrap break-words;
+  }
+  
+  /* Additional fixes for code blocks */
+  .mdx-content .react-syntax-highlighter {
+    @apply max-w-full overflow-hidden;
+  }
+  
+  .mdx-content .react-syntax-highlighter pre {
+    @apply max-w-full overflow-x-auto;
+  }
+  
+  /* Ensure long lines wrap instead of causing horizontal scroll */
+  .mdx-content .react-syntax-highlighter code {
+    @apply whitespace-pre-wrap break-all;
+  }
 }
