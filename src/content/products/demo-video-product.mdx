@@ -158,11 +158,8 @@ Berikut adalah berbagai variasi penggunaan komponen `Highlights`:
 
 ### JavaScript/TypeScript
 
-<CodeBlock 
-  language="javascript"
-  title="React Component Example"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`import React, { useState, useEffect } from 'react';
 
 function ProductCard({ product }) {
@@ -193,15 +190,13 @@ function ProductCard({ product }) {
 }
 
 export default ProductCard;`}
-</CodeBlock>
+</code>
+</pre>
 
 ### Python
 
-<CodeBlock 
-  language="python"
-  title="FastAPI Example"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
@@ -238,15 +233,13 @@ async def get_product(product_id: int):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)`}
-</CodeBlock>
+</code>
+</pre>
 
 ### PHP (Laravel)
 
-<CodeBlock 
-  language="php"
-  title="Laravel Controller Example"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`<?php
 
 namespace App\\Http\\Controllers;
@@ -303,15 +296,13 @@ class ProductController extends Controller
         ], 201);
     }
 }`}
-</CodeBlock>
+</code>
+</pre>
 
 ### CSS
 
-<CodeBlock 
-  language="css"
-  title="Responsive CSS Grid Layout"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`/* Product Grid Layout */
 .product-grid {
   display: grid;
@@ -380,15 +371,13 @@ class ProductController extends Controller
     color: #a0aec0;
   }
 }`}
-</CodeBlock>
+</code>
+</pre>
 
 ### SQL
 
-<CodeBlock 
-  language="sql"
-  title="Database Schema and Queries"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`-- Create products table
 CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -459,15 +448,13 @@ FROM categories c
 LEFT JOIN products p ON c.id = p.category_id AND p.is_active = TRUE
 GROUP BY c.id, c.name
 ORDER BY product_count DESC;`}
-</CodeBlock>
+</code>
+</pre>
 
 ### JSON
 
-<CodeBlock 
-  language="json"
-  title="API Response Example"
-  showLineNumbers={true}
->
+<pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
+<code className="text-sm">
 {`{
   "status": "success",
   "data": {
@@ -519,5 +506,6 @@ ORDER BY product_count DESC;`}
   "message": "Products retrieved successfully",
   "timestamp": "2024-01-25T08:15:30Z"
 }`}
-</CodeBlock>
+</code>
+</pre>
 

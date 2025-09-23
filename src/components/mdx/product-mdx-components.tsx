@@ -10,7 +10,6 @@ import { OrderCTA } from "./OrderCTA";
 import { CustomHTML } from "./CustomHTML";
 import { Highlights } from "./Highlights";
 import { Collapsible } from "./Collapsible";
-import { CodeBlock } from "./CodeBlock";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -31,7 +30,6 @@ type ProductMDXComponents = {
   SneakPeek: typeof SneakPeek;
   Highlights: typeof Highlights;
   Collapsible: typeof Collapsible;
-  CodeBlock: typeof CodeBlock;
 };
 
 export const productMdxComponents: ProductMDXComponents = {
@@ -86,5 +84,4 @@ export const productMdxComponents: ProductMDXComponents = {
   SneakPeek,
   Highlights,
   Collapsible,
-  CodeBlock,
 };
