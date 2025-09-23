@@ -9,6 +9,7 @@ import { FeatureGrid } from "./FeatureGrid";
 import { OrderCTA } from "./OrderCTA";
 import { CustomHTML } from "./CustomHTML";
 import { Highlights } from "./Highlights";
+import { Collapsible } from "./Collapsible";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -28,6 +29,7 @@ type ProductMDXComponents = {
   CustomHTML: typeof CustomHTML;
   SneakPeek: typeof SneakPeek;
   Highlights: typeof Highlights;
+  Collapsible: typeof Collapsible;
 };
 
 export const productMdxComponents: ProductMDXComponents = {
@@ -81,4 +83,5 @@ export const productMdxComponents: ProductMDXComponents = {
   CustomHTML,
   SneakPeek,
   Highlights,
+  Collapsible,
 };
