@@ -1,10 +1,13 @@
 import type { JSX } from "react";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { Video } from "./Video";
+import { SneakPeek } from "./SneakPeek";
 import { cn } from "@/lib/utils";
 
 import { Callout } from "./Callout";
 import { FeatureGrid } from "./FeatureGrid";
 import { OrderCTA } from "./OrderCTA";
+import { CustomHTML } from "./CustomHTML";
 
 type HeadingProps = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 type ParagraphProps = DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>;
@@ -20,6 +23,9 @@ type ProductMDXComponents = {
   Callout: typeof Callout;
   FeatureGrid: typeof FeatureGrid;
   OrderCTA: typeof OrderCTA;
+  Video: typeof Video;
+  CustomHTML: typeof CustomHTML;
+  SneakPeek: typeof SneakPeek;
 };
 
 export const productMdxComponents: ProductMDXComponents = {
@@ -69,4 +75,7 @@ export const productMdxComponents: ProductMDXComponents = {
   Callout,
   FeatureGrid,
   OrderCTA,
+  Video,
+  CustomHTML,
+  SneakPeek,
 };
