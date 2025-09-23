@@ -16,7 +16,6 @@ interface CodeBlockProps {
   startingLineNumber?: number;
   highlightLines?: number[];
   className?: string;
-  maxHeight?: string;
 }
 
 export function CodeBlock({
@@ -27,7 +26,6 @@ export function CodeBlock({
   startingLineNumber = 1,
   highlightLines = [],
   className,
-  maxHeight = "400px",
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -62,7 +60,7 @@ export function CodeBlock({
         borderRight: theme === "dark" ? "1px solid #374151" : "1px solid #e5e7eb",
         marginRight: "1em",
       }}
-      wrapLines={true}
+      wrapLines={false}
       lineProps={(lineNumber: number) => {
         const isHighlighted = highlightLines.includes(lineNumber);
         return {
@@ -80,9 +78,8 @@ export function CodeBlock({
         lineHeight: "1.5",
         padding: isFullScreen ? "2rem" : "1rem",
         background: theme === "dark" ? "#1e1e1e" : "#ffffff",
-        minWidth: "fit-content",
-        width: "auto",
-        maxHeight: isFullScreen ? "none" : maxHeight,
+        width: "100%",
+        maxWidth: "100%",
         overflow: "visible",
         whiteSpace: "pre",
       }}
@@ -141,17 +138,10 @@ export function CodeBlock({
           </div>
         )}
 
-        {/* Code block with constrained width and height */}
+        {/* Code block with constrained width */}
         <div className="rounded-b-lg overflow-hidden border border-border/60">
-          <div 
-            className="overflow-auto"
-            style={{ maxHeight }}
-          >
-            <div className="min-w-0 w-full">
-              <div className="overflow-x-auto">
-                <CodeContent />
-              </div>
-            </div>
+          <div className="w-full overflow-x-auto">
+            <CodeContent />
           </div>
         </div>
       </div>
@@ -204,10 +194,8 @@ export function CodeBlock({
             </div>
 
             {/* Lightbox Content */}
-            <div className="overflow-auto max-h-[calc(90vh-80px)]">
-              <div className="overflow-x-auto">
-                <CodeContent isFullScreen />
-              </div>
+            <div className="overflow-x-auto">
+              <CodeContent isFullScreen />
             </div>
           </div>
         </div>
