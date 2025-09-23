@@ -13,8 +13,6 @@ export interface ProductFrontmatter {
   original_price?: number;
   is_featured?: boolean;
   summary: string;
-  sneakPeek: string[];
-  highlights?: string[];
   position?: number;
   ctaLabel?: string;
   ctaUrl?: string;

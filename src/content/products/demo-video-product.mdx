@@ -11,9 +11,6 @@ price: 199000
 original_price: 299000
 is_featured: true
 summary: Contoh produk yang menampilkan video demo menggunakan komponent <Video/> dalam MDX.
-highlights:
-  - Integrasi MDX dengan komponen kustom
-  - Video responsif dengan beberapa opsi sumber
 position: 1
 ctaLabel: Beli Sekarang
 ctaUrl: https://example.com/demo-product#buy
@@ -29,15 +26,24 @@ Berikut adalah contoh embed video menggunakan komponent `Video` dari MDX.
 
 ## Mengapa Produk Ini?
 
-- Mudah diintegrasikan ke halaman produk.
-- Mendukung YouTube, Vimeo, atau `src` langsung.
-- Layout responsif dan aksesibel.
+<Highlights 
+  items={[
+    "Mudah diintegrasikan ke halaman produk",
+    "Mendukung YouTube, Vimeo, atau src langsung",
+    "Layout responsif dan aksesibel"
+  ]}
+/>
 
 ## Spesifikasi Singkat
 
-- Kategori: Produk Digital
-- Harga: Rp199.000
-- Dukungan: Pembaruan gratis selama 6 bulan
+<Highlights 
+  variant="minimal"
+  items={[
+    "Kategori: Produk Digital",
+    "Harga: Rp199.000", 
+    "Dukungan: Pembaruan gratis selama 6 bulan"
+  ]}
+/>
 
 ## Sneak Peek
 
@@ -51,4 +57,41 @@ Berikut adalah contoh embed video menggunakan komponent `Video` dari MDX.
 Di bawah ini contoh render HTML kustom langsung di MDX menggunakan `CustomHTML`.
 
 <CustomHTML html={'<div style="padding:12px;border:1px dashed #999;border-radius:8px"><strong>HTML Kustom:</strong> Ini konten <em>raw HTML</em> yang dirender lewat komponen.</div>'} />
+
+## Contoh Highlights Component
+
+Berikut adalah berbagai variasi penggunaan komponen `Highlights`:
+
+### Default Style (Card dengan Check Icon)
+
+<Highlights 
+  items={[
+    "Template effort breakdown berdasarkan role dan kompleksitas",
+    "Simulasi margin otomatis dengan asumsi biaya operasional", 
+    "Checklist risiko dan catatan komunikasi klien"
+  ]}
+/>
+
+### Minimal Style (Bullet Points)
+
+<Highlights 
+  variant="minimal"
+  items={[
+    "Integrasi MDX dengan komponen kustom",
+    "Video responsif dengan beberapa opsi sumber",
+    "Layout yang mudah dikustomisasi"
+  ]}
+/>
+
+### Two Columns Layout
+
+<Highlights 
+  columns={2}
+  items={[
+    "Responsive design",
+    "Dark mode support",
+    "TypeScript ready",
+    "SEO optimized"
+  ]}
+/>
 

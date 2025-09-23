@@ -101,8 +101,6 @@ function normalizeFrontmatter(slug: string, data: RawFrontmatter): ProductFrontm
   const original_price = toOptionalNumber(data.original_price, "original_price", slug);
   const is_featured = toBoolean(data.is_featured);
   const summary = assertString(data.summary, "summary", slug);
-  const sneakPeek = toStringArray(data.sneakPeek);
-  const highlights = toStringArray(data.highlights);
   const position = toOptionalNumber(data.position, "position", slug);
   const ctaLabel = toOptionalString(data.ctaLabel);
   const ctaUrl = toOptionalString(data.ctaUrl);
@@ -122,8 +120,6 @@ function normalizeFrontmatter(slug: string, data: RawFrontmatter): ProductFrontm
     original_price,
     is_featured,
     summary,
-    sneakPeek,
-    highlights: highlights.length > 0 ? highlights : undefined,
     position,
     ctaLabel,
     ctaUrl,

@@ -2,13 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 import { getProductBySlug, getProductSlugs } from "@/lib/products";
 import { formatRupiah } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SneakPeekCarousel } from "@/app/components/SneakPeekCarousel";
 
 export async function generateStaticParams() {
   const slugs = await getProductSlugs();
@@ -83,8 +82,6 @@ export default async function ProductDetailPage({
     url,
     coverImage,
     thumbnail,
-    sneakPeek,
-    highlights,
     content,
     ctaLabel,
     ctaUrl,
@@ -95,8 +92,6 @@ export default async function ProductDetailPage({
   const isFree = price === 0;
   const finalCtaLabel = ctaLabel ?? (isFree ? "Download Gratis" : "Beli Sekarang");
   const finalCtaUrl = ctaUrl ?? url;
-  const hasSneakPeek = Array.isArray(sneakPeek) && sneakPeek.length > 0;
-  const hasHighlights = Array.isArray(highlights) && highlights.length > 0;
   const showStickyCta = disableStickyCta !== true;
 
   return (
@@ -175,31 +170,7 @@ export default async function ProductDetailPage({
                 <section className="space-y-6">
                   <div className="space-y-4 text-left">{content}</div>
 
-                  {hasHighlights ? (
-                    <div className="rounded-2xl border border-border/60 bg-background/80 p-4 space-y-3">
-                      <h2 className="text-lg font-semibold text-foreground">Highlight utama</h2>
-                      <ul className="space-y-2">
-                        {highlights.map((item) => (
-                          <li key={item} className="flex items-start gap-3 text-sm text-foreground">
-                            <Check className="mt-0.5 h-4 w-4 text-primary" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
 
-                  {hasSneakPeek ? (
-                    <div className="space-y-4">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <h2 className="text-xl font-semibold text-foreground">Sneak Peek</h2>
-                        <span className="text-xs text-muted-foreground">
-                          Geser untuk melihat preview konten
-                        </span>
-                      </div>
-                      <SneakPeekCarousel images={sneakPeek} productName={name} />
-                    </div>
-                  ) : null}
                 </section>
               </div>
             </div>
