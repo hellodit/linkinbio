@@ -112,15 +112,11 @@ export function CodeBlock({
               width: "100%",
               maxWidth: "100%",
               overflow: "hidden",
-              wordBreak: "break-all",
-              overflowWrap: "break-word",
-              whiteSpace: "pre-wrap",
+              whiteSpace: "pre",
             }}
             codeTagProps={{
               style: {
-                wordBreak: "break-all",
-                overflowWrap: "break-word",
-                whiteSpace: "pre-wrap",
+                whiteSpace: "pre",
                 maxWidth: "100%",
               }
             }}
