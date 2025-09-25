@@ -182,14 +182,11 @@ export default async function ProductDetailPage({
         <div className="fixed inset-x-0 bottom-0 z-50 px-4 bg-white dark:bg-background/95">
           <div className="mx-auto flex max-w-lg justify-center py-4">
             <div className="w-full max-w-lg p-1 space-y-2">
-              {ctaHelperText ? (
-                <p className="text-xs text-muted-foreground text-center">{ctaHelperText}</p>
-              ) : null}
               <Button
                 asChild
                 size="lg"
                 variant="default"
-                className="w-full text-primary-foreground hover:bg-primary/90"
+                className="w-full text-primary-foreground hover:bg-primary/90 mb-2"
               >
                 <a
                   href={finalCtaUrl}
@@ -201,6 +198,9 @@ export default async function ProductDetailPage({
                   {finalCtaLabel}
                 </a>
               </Button>
+              {ctaHelperText ? (
+                <p className="text-xs text-muted-foreground text-center">{ctaHelperText}</p>
+              ) : null}
             </div>
           </div>
         </div>

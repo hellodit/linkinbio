@@ -12,7 +12,7 @@ type Feature =
 
 interface FeatureGridProps {
   items: Feature[];
-  columns?: 2 | 3;
+  columns?: 1 | 2 | 3;
 }
 
 function normalizeFeature(item: Feature) {
@@ -22,8 +22,8 @@ function normalizeFeature(item: Feature) {
   return item;
 }
 
-export function FeatureGrid({ items, columns = 2 }: FeatureGridProps) {
-  const layout = columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
+export function FeatureGrid({ items, columns = 1 }: FeatureGridProps) {
+  const layout = columns === 3 ? "md:grid-cols-3" : columns === 2 ? "md:grid-cols-2" : "grid-cols-1";
   return (
     <div className={cn("grid gap-3", layout)}>
       {items.map((item, idx) => {

@@ -246,7 +246,7 @@ Komponen untuk menampilkan grid fitur dengan ikon dan deskripsi.
 ```typescript
 interface FeatureGridProps {
   items: FeatureItem[];              // Array item fitur
-  columns?: 2 | 3;                  // Jumlah kolom (default: 2)
+  columns?: 1 | 2 | 3;              // Jumlah kolom (default: 1)
 }
 
 interface FeatureItem {
@@ -273,7 +273,7 @@ interface FeatureItem {
       description: "Catat asumsi, blocking, dan log komunikasi klien agar proposal bisa dipertahankan."
     }
   ]}
-  columns={2}
+  columns={1}
 />
 ```
 

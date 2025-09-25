@@ -54,7 +54,7 @@ export function CustomHTML({ html, children, className, ...rest }: CustomHTMLPro
   if (html) {
     return (
       <div
-        className={cn("prose prose-sm max-w-none", className)}
+        className={cn("prose prose-sm max-w-none h-auto", className)}
         dangerouslySetInnerHTML={{ __html: html }}
         {...rest}
       />
@@ -67,7 +67,7 @@ export function CustomHTML({ html, children, className, ...rest }: CustomHTMLPro
     
     return (
       <div
-        className={cn("prose prose-sm max-w-none", className)}
+        className={cn("prose prose-sm max-w-none h-auto", className)}
         {...rest}
       >
         {processedChildren}

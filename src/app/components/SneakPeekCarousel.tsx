@@ -81,10 +81,16 @@ export function SneakPeekCarousel({ images, productName }: SneakPeekCarouselProp
                     priority={index === 0}
                     quality={75}
                   />
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                    <span className="rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white">
+                  <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                    <span className="rounded-full bg-black/40 px-3 py-1 text-xs font-medium text-white mb-2">
                       Klik untuk perbesar
                     </span>
+                    <span className="rounded bg-white/80 px-2 py-0.5 text-[10px] text-black font-semibold shadow">
+                      {`Gambar ${index + 1} dari ${images.length}`}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2 right-2 bg-black/50 rounded px-2 py-0.5 text-[11px] text-white pointer-events-none">
+                    {productName}
                   </div>
                 </div>
               </button>
