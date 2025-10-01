@@ -96,17 +96,17 @@ export function TestimonialCarousel({
         <CarouselContent className="-ml-4">
           {testimonials.map((testimonial) => (
             <CarouselItem key={testimonial.id} className="pl-4 basis-full">
-              <div className="bg-white dark:bg-card rounded-xl shadow-lg border border-border/60 p-4 md:p-6 h-full">
+              <div className="bg-white dark:bg-card rounded-xl shadow-lg border border-border/60 p-4 md:p-6 h-full min-h-[280px] flex flex-col">
                 {/* Star Rating */}
                 {renderStars(testimonial.rating)}
 
                 {/* Review Text */}
-                <p className="text-gray-800 dark:text-foreground text-sm md:text-base leading-relaxed mb-4 md:mb-6 font-medium">
+                <p className="text-gray-800 dark:text-foreground text-sm md:text-base leading-relaxed mb-4 md:mb-6 font-medium flex-grow">
                   &ldquo;{testimonial.review}&rdquo;
                 </p>
 
                 {/* User Info */}
-                <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-3 md:gap-4 mt-auto">
                   <div className="relative">
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 p-0.5">
                       <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-card p-0.5">
