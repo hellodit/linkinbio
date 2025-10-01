@@ -54,7 +54,8 @@ export function CustomHTML({ html, children, className, ...rest }: CustomHTMLPro
   if (html) {
     return (
       <div
-        className={cn("prose prose-sm max-w-none h-auto", className)}
+        className={cn("prose prose-sm max-w-lg mx-auto min-h-fit overflow-hidden", className)}
+        style={{ height: 'auto', minHeight: 'fit-content' }}
         dangerouslySetInnerHTML={{ __html: html }}
         {...rest}
       />
@@ -67,7 +68,8 @@ export function CustomHTML({ html, children, className, ...rest }: CustomHTMLPro
     
     return (
       <div
-        className={cn("prose prose-sm max-w-none h-auto", className)}
+        className={cn("prose prose-sm max-w-lg mx-auto min-h-fit overflow-hidden", className)}
+        style={{ height: 'auto', minHeight: 'fit-content' }}
         {...rest}
       >
         {processedChildren}

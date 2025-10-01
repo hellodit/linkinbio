@@ -72,7 +72,7 @@ export function Collapsible({
   }
 
   return (
-    <div className={cn("w-full", className)} {...rest}>
+    <div className={cn("w-full max-w-lg mx-auto", className)} {...rest}>
       <div className="space-y-0">
         {items.map((item, index) => {
           const isOpen = openIndex === index;

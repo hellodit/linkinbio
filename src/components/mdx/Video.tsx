@@ -61,7 +61,7 @@ export function Video(props: VideoProps) {
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-xl bg-black/80",
+        "relative w-full max-w-lg mx-auto overflow-hidden rounded-xl bg-black/80",
         "[aspect-ratio:var(--aspect-w)/var(--aspect-h)]",
         getAspectClass(aspect),
         className

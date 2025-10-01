@@ -22,7 +22,7 @@ export function OrderCTA({
     align === "left" ? "items-start text-left" : align === "right" ? "items-end text-right" : "items-center text-center";
 
   return (
-    <div className={cn("flex w-full flex-col gap-2", alignment)}>
+    <div className={cn("flex w-full max-w-lg mx-auto flex-col gap-2", alignment)}>
       {note ? <div className="text-xs text-muted-foreground">{note}</div> : null}
       <Button
         asChild
